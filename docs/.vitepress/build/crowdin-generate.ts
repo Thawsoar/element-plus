@@ -7,7 +7,6 @@ import { errorAndExit } from '../../../build/utils/log'
 
 // NB: this file is only for generating files that enables developers to develop the website.
 const componentLocaleRoot = path.resolve(docRoot, '.vitepress/crowdin')
-
 const exists = 'File already exists'
 
 async function main() {
@@ -15,7 +14,6 @@ async function main() {
   if (fs.existsSync(localeOutput)) {
     throw new Error(exists)
   }
-
   console.log(chalk.cyan('Starting for build doc for developing'))
   // all language should be identical since it is mirrored from crowdin.
   const dirs = await fs.promises.readdir(componentLocaleRoot, {
@@ -23,7 +21,6 @@ async function main() {
   })
   const languages = dirs.map((dir) => dir.name)
   const langWithoutEn = languages.filter((l) => l !== 'en-US')
-
   await fs.promises.mkdir(localeOutput)
 
   // build lang.json for telling `header>language-select` how many languages are there
@@ -44,7 +41,6 @@ async function main() {
     }
   })
 
-  console.log(languagePaths)
   await traverseDir(enUS, languagePaths, localeOutput)
 }
 

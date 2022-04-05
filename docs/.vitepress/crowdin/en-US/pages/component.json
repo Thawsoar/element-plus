@@ -302,5 +302,14 @@
         "text": "Divider"
       }
     ]
+  },
+  "business": {
+    "text": "Business",
+    "children": [
+      {
+        "link": "/dynamic-table",
+        "text": "Dynamic Table"
+      }
+    ]
   }
 }

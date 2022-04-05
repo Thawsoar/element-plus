@@ -1,0 +1,113 @@
+// 主题色
+$color-theme: #2772fd;
+$color-theme-hover: #1458d8;
+$color-theme-active: #114fc5;
+
+// 警示色
+$color-danger: #ff4131;
+$color-danger-hover: #e93728;
+$color-danger-active: #de2b1c;
+
+$color-warning: #fba600;
+
+$color-success: #1fba6a;
+
+$color-info: #f4f5f9;
+
+// 文字色
+$color-text-important: #111;
+$color-text-primary: #333;
+$color-text-regular: #525861;
+$color-text-secondary: #6d737c;
+$color-text-slight: #7d868f;
+$color-text-tip: #99a0a7;
+$color-text-placeholder: #b8bdcc;
+$color-text-info: #999999;
+
+// 边框
+$color-border: #d7dbe7;
+$color-separator: #e1e5ed;
+
+// 背景
+$color-background: #f3f3f5;
+.base-dynamic-table {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+  height: 100%;
+  width: 100%;
+}
+.base-pagination {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 7px 0;
+  box-sizing: border-box;
+  .page-aside {
+    padding-left: 0;
+  }
+  :deep(.el-pagination) {
+    text-align: center;
+    font-size: 12px;
+    font-weight: 400;
+    padding: 0;
+
+    .btn-prev,
+    .btn-next,
+    .el-pager li,
+    .el-pager li.btn-quicknext,
+    .el-pager li.btn-quickprev,
+    .el-pager li:last-child,
+    .el-pager .more::before {
+      height: 26px;
+      line-height: 24px;
+    }
+
+    .number,
+    .more {
+      box-sizing: border-box;
+      min-width: 26px;
+      margin-left: 5px;
+      margin-right: 5px;
+      border: 1px solid $color-border;
+      border-radius: 2px;
+      background-color: #fff;
+      color: $color-text-primary;
+      font-weight: 400;
+      &:hover {
+        border-color: $color-theme;
+        color: $color-theme;
+      }
+      &.active {
+        border-color: $color-theme;
+        background-color: $color-theme;
+        color: #fff !important;
+      }
+    }
+
+    .btn-prev,
+    .btn-next {
+      box-sizing: border-box;
+      min-width: 26px;
+      margin-left: 5px;
+      margin-right: 5px;
+      padding: 0;
+      border: 1px solid $color-border;
+      border-radius: 2px;
+      background-color: #f0f2f5;
+    }
+  }
+
+  :deep(.el-pagination__total) {
+    height: 26px;
+    line-height: 26px;
+  }
+  :deep(.el-pagination__sizes) {
+    height: 26px;
+    line-height: 26px;
+    margin-top: -1px;
+    margin-right: 0;
+  }
+}
