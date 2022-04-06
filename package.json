@@ -34,6 +34,7 @@
     "docs:serve": "pnpm run -C docs serve",
     "docs:gen-locale": "pnpm run -C docs gen-locale",
     "docs:crowdin-credentials": "pnpm run -C docs crowdin-credentials",
+    "docs:deploy": "pnpm run -C docs deploy",
     "prepare": "husky install",
     "postinstall": "pnpm gen:version",
     "preinstall": "npx only-allow pnpm -y"

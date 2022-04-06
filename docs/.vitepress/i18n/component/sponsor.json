@@ -1,0 +1,12 @@
+{
+  "en-US": {
+    "title": "Sponsors",
+    "sponsoredBy": "Sponsored by"
+  },
+  "zh-CN": {
+    "title": "赞助商",
+    "sponsoredBy": "赞助商",
+    "platinumSponsor": "白金赞助商",
+    "goldSponsor": "金牌赞助商"
+  }
+}

@@ -7,9 +7,12 @@ import {
   provide,
   watch,
   onMounted,
+  getCurrentInstance,
 } from 'vue'
 import ElTable, { ElTableColumn } from '@element-plus/components/table'
+
 import ElPagination from '@element-plus/components/pagination'
+import defaultProps from '@element-plus/components/table/src/table/defaults'
 import RenderColumn from './renderColumn'
 import TableSetting from './tableSetting'
 const BaseDynamicTable = defineComponent({
@@ -22,6 +25,7 @@ const BaseDynamicTable = defineComponent({
     TableSetting,
   },
   props: {
+    ...defaultProps,
     // 表格列
     columns: {
       type: Array,
@@ -42,10 +46,10 @@ const BaseDynamicTable = defineComponent({
       type: String,
       default: 'left',
     },
+    // 是否展示分页控件
     showPagination: {
-      // 是否展示分页控件
       type: Boolean,
-      default: true,
+      default: false,
     },
     currentPage: {
       type: Number,
@@ -104,9 +108,10 @@ const BaseDynamicTable = defineComponent({
       default: () => ['base-dynamic-table'],
     },
   },
-  emits: ['size-change', 'page-change', 'current-change'],
   setup(props, ctx) {
-    const { emit, attrs, slots } = ctx
+    const { emit, attrs, slots, expose } = ctx
+    const table = ref()
+
     provide('tableRoot', ctx)
     const page = reactive(props.pagination)
     const tableSettingDialogVisible = ref(false)
@@ -174,6 +179,9 @@ const BaseDynamicTable = defineComponent({
     onMounted(() => {
       initSelectedShowColumns()
     })
+    expose({
+      table,
+    })
 
     return () => (
       <div class={props.customClass}>
@@ -182,7 +190,7 @@ const BaseDynamicTable = defineComponent({
             <i class="el-icon-setting"></i>
           </div>
         )}
-        <el-table data={props.tableData} ref="BaseDynamicTable" {...attrs}>
+        <el-table ref={(el) => (table.value = el)} {...props} {...attrs}>
           {selectedShowColumns.value.map((column) => {
             return column.hide ? null : (
               <RenderColumn

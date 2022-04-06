@@ -6,7 +6,8 @@
     "build": "cross-env NODE_ENV=production && vitepress build .",
     "serve": "cross-env NODE_ENV=production vitepress serve . --port 5001",
     "gen-locale": "rimraf .vitepress/i18n && sucrase-node .vitepress/build/crowdin-generate.ts",
-    "crowdin-credentials": "sucrase-node .vitepress/build/crowdin-credentials.ts"
+    "crowdin-credentials": "sucrase-node .vitepress/build/crowdin-credentials.ts",
+    "deploy": "bash ../scripts/deploy.sh"
   },
   "dependencies": {
     "@docsearch/js": "^3.0.0",

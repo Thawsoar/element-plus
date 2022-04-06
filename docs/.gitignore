@@ -1,9 +1,9 @@
-.vitepress/i18n/*
-.vitepress/crowdin/*
-!.vitepress/crowdin/en-US
+# .vitepress/i18n/*
+# .vitepress/crowdin/*
+# !.vitepress/crowdin/en-US
 
 temp
-zh-CN
+# zh-CN
 fr-FR
 es-ES
 ja-JP
