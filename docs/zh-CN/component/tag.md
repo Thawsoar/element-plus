@@ -53,7 +53,7 @@ tag/theme
 
 :::
 
-## Rounded <el-tag>> 2.1.7</el-tag>
+<!-- ## Rounded <el-tag>> 2.1.7</el-tag>
 
 Tag can also be rounded like button.
 
@@ -61,7 +61,7 @@ Tag can also be rounded like button.
 
 tag/rounded
 
-:::
+::: -->
 
 ## 可选中的标签
 

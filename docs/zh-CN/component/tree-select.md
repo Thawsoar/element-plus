@@ -11,71 +11,71 @@ The tree selector of the dropdown menu, it combines the functions of components 
 
 Selector for tree structures.
 
-:::demo
+<!-- :::demo
 
 tree-select/basic
 
-:::
+::: -->
 
 ## Select any level
 
 When using the `check-strictly=true` attribute, any node can be checked, otherwise only leaf nodes are supported.
 
-:::demo
+<!-- :::demo
 
 tree-select/check-strictly
 
-:::
+::: -->
 
 ## Multiple Selection
 
 Multiple selection using clicks or checkbox.
 
-:::demo
+<!-- :::demo
 
 tree-select/multiple
 
-:::
+::: -->
 
 ## Disabled Selection
 
 Disable options using the disabled field.
 
-:::demo
+<!-- :::demo
 
 tree-select/disabled
 
-:::
+::: -->
 
 ## Filterable
 
 Use keyword filtering or custom filtering methods. `filterMethod` can custom filter method for data, `filterNodeMethod` can custom filter method for data node.
 
-:::demo
+<!-- :::demo
 
 tree-select/filterable
 
-:::
+::: -->
 
 ## Custom content
 
 Contents of custom tree nodes.
 
-:::demo
+<!-- :::demo
 
 tree-select/slots
 
-:::
+::: -->
 
 ## LazyLoad
 
 Lazy loading of tree nodes, suitable for large data lists.
 
-:::demo
+<!-- :::demo
 
 tree-select/lazy
 
-:::
+::: -->
 
 ## Attributes
 

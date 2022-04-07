@@ -11,19 +11,19 @@ lang: zh-CN
 
 在图标上以 **Hover** 或者 **tab** 方式触发文字提示。
 
-:::demo
+<!-- :::demo
 
 tooltip-v2/basic-usage
 
-:::
+::: -->
 
 ## 可访问性友好的文字提示
 
-:::demo
+<!-- :::demo
 
 tooltip-v2/a11y
 
-:::
+::: -->
 
 ## 转场/动画
 
@@ -35,39 +35,39 @@ By default, tooltip v2 ONLY allows a half-way transition/animation which only oc
 
 :::
 
-:::demo
+<!-- :::demo
 
 tooltip-v2/transition
 
-:::
+::: -->
 
 ### 完全过渡
 
 Of course, you can have full transition for your tooltip content. But this requires using [Transition](https://vuejs.org/guide/built-ins/transition.html#transition) component, checkout the demo below.
 
-:::demo
+<!-- :::demo
 
 tooltip-v2/full-transition
 
-:::
+::: -->
 
 ## 渲染到根元素
 
 By default, unlike [tooltip v1](./tooltip.md), the tooltip will be rendered to the body element. **tooltip v2** will render to where the trigger/reference element is. But you can still render to to the root element by using `Teleport` component.
 
-:::demo
+<!-- :::demo
 
 tooltip-v2/render-to-root
 
-:::
+::: -->
 
 ## 带箭头
 
-:::demo
+<!-- :::demo
 
 tooltip-v2/arrow
 
-:::
+::: -->
 
 <!-- ## Composing your own tooltip
 

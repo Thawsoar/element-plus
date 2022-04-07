@@ -8,7 +8,7 @@ const TableSlot = (props) => {
       ? tableRoot?.slots[props.column.slot]({
           row: props.row,
           column: props.column,
-          index: props.index,
+          $index: props.index,
         })
       : null
   )

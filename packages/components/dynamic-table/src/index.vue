@@ -7,7 +7,7 @@ import {
   provide,
   watch,
   onMounted,
-  getCurrentInstance,
+  computed,
 } from 'vue'
 import ElTable, { ElTableColumn } from '@element-plus/components/table'
 
@@ -33,11 +33,6 @@ const BaseDynamicTable = defineComponent({
     },
     // 需要隐藏的列，prop
     hideColumns: {
-      type: Array,
-      default: () => [],
-    },
-    // 表格数据
-    tableData: {
       type: Array,
       default: () => [],
     },
@@ -111,7 +106,6 @@ const BaseDynamicTable = defineComponent({
   setup(props, ctx) {
     const { emit, attrs, slots, expose } = ctx
     const table = ref()
-
     provide('tableRoot', ctx)
     const page = reactive(props.pagination)
     const tableSettingDialogVisible = ref(false)
@@ -182,7 +176,15 @@ const BaseDynamicTable = defineComponent({
     expose({
       table,
     })
-
+    const tableProps = computed(() => {
+      const obj = {}
+      Object.keys(defaultProps).forEach((key) => {
+        if (props[key]) {
+          obj[key] = props[key]
+        }
+      })
+      return obj
+    })
     return () => (
       <div class={props.customClass}>
         {props.showTableSetting && (
@@ -190,7 +192,11 @@ const BaseDynamicTable = defineComponent({
             <i class="el-icon-setting"></i>
           </div>
         )}
-        <el-table ref={(el) => (table.value = el)} {...props} {...attrs}>
+        <el-table
+          ref={(el) => (table.value = el)}
+          {...tableProps.value}
+          {...attrs}
+        >
           {selectedShowColumns.value.map((column) => {
             return column.hide ? null : (
               <RenderColumn
