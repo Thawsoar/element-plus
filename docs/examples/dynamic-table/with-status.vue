@@ -2,6 +2,7 @@
   <ElDynamicTable
     :columns="columns"
     :data="tableData"
+    :pagination="false"
     :row-class-name="tableRowClassName"
   />
 </template>

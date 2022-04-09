@@ -1,5 +1,11 @@
 <template>
-  <ElDynamicTable :columns="columns" :data="tableData" border show-summary />
+  <ElDynamicTable
+    :columns="columns"
+    :data="tableData"
+    border
+    show-summary
+    :pagination="false"
+  />
 
   <ElDynamicTable
     style="width: 100%; margin-top: 20px"
@@ -9,6 +15,7 @@
     height="200"
     show-summary
     :summary-method="getSummaries"
+    :pagination="false"
   />
 </template>
 

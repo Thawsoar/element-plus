@@ -157,7 +157,7 @@ dynamic-table/expandable-row
 
 ## 树形数据与懒加载
 
-:::demo 支持树类型的数据的显示。 当 row 中包含 `children` 字段时，被视为树形数据。 渲染树形数据时，必须要指定` row-key`。支持子节点数据异步加载。 设置 Table 的`lazy`属性为 true 与加载函数 `load` 。 通过指定 row 中的`hasChildren`字段来指定哪些行是包含子节点。 `children` 与`hasChildren`都可以通过 `tree-props `配置。
+:::demo 支持树类型的数据的显示。 当 row 中包含 `children` 字段时，被视为树形数据。 渲染树形数据时，必须要指定`row-key`。支持子节点数据异步加载。 设置 Table 的`lazy`属性为 true 与加载函数 `load` 。 通过指定 row 中的`hasChildren`字段来指定哪些行是包含子节点。 `children` 与`hasChildren`都可以通过 `tree-props`配置。
 
 dynamic-table/tree-and-lazy
 
@@ -177,7 +177,7 @@ dynamic-table/summary
 
 多行或多列共用一个数据时，可以合并行或列。
 
-:::demo 通过给 table 传入`span-method`方法可以实现合并行或列， 方法的参数是一个对象，里面包含当前行` row`、当前列 ` column`、当前行号` rowIndex`、当前列号 ` columnIndex` 四个属性。 该函数可以返回一个包含两个元素的数组，第一个元素代表 ` rowspan`，第二个元素代表 ` colspan`。 也可以返回一个键名为` rowspan` 和` colspan` 的对象。
+:::demo 通过给 table 传入`span-method`方法可以实现合并行或列， 方法的参数是一个对象，里面包含当前行`row`、当前列 `column`、当前行号`rowIndex`、当前列号 `columnIndex` 四个属性。 该函数可以返回一个包含两个元素的数组，第一个元素代表 `rowspan`，第二个元素代表 `colspan`。 也可以返回一个键名为`rowspan` 和`colspan` 的对象。
 
 dynamic-table/rowspan-and-colspan
 
@@ -187,14 +187,26 @@ dynamic-table/rowspan-and-colspan
 
 自定义 `type=index` 列的行号。
 
-:::demo 通过给 columnItem`的列设置 type="index" 属性，可以自定义索引。 该属性传入数字时，将作为索引的起始值。 也可以传入一个方法，它提供当前行的行号（从 `0` 开始）作为参数，返回值将作为索引展示。
+:::demo 通过给 columnItem`的列设置 type="index" 属性，可以自定义索引。 该属性传入数字时，将作为索引的起始值。 也可以传入一个方法，它提供当前行的行号（从`0` 开始）作为参数，返回值将作为索引展示。
 
 dynamic-table/custom-index
 
 :::
 
-## 分页相关
+## 配置分页
 
-待重新设计 api
+:::demo DynamicTable 组件默认开启了分页， 你也可以通过设置 `pagination` 属性为 false 来关闭分页。通过设置 `{ currentPage: 1, pageSize: 10}`属性配置分页位置和个数之外，你还可以配置 ElementPlus pagination 组件的其它所有属性。这个例子通过简单的 ajax 读取方式，演示了如何从服务端读取并展现数据。注意，此示例使用 模拟接口，展示数据可能不准确，请打开网络面板查看请求。
+
+dynamic-table/pagination
+
+:::
+
+## 自定义分页
+
+:::demo DynamicTable 集成了分页组件，为了方便使用，使用了属性的配置方式，使用方便的同时，灵活度有一定的损失。但你完全可以关闭 Table 自带的分页功能，而是使用一个独立的`ElPagination`分页组件。甚至我们还可以使用 [VueUse/useOffsetPagination](https://vueuse.org/core/useOffsetPagination/) Hooks 来自定义分页组件，或者获取分页数据与集成的分页组件组合使用。在下面的例子中，我们在`pageAside` 插槽中简单的实现了自定义分页。
+
+dynamic-table/use-offset-pagination
+
+:::
 
 ## 待续

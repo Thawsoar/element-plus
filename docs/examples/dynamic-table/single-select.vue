@@ -5,6 +5,7 @@
     :data="tableData"
     highlight-current-row
     style="width: 100%"
+    :pagination="false"
     @current-change="handleCurrentChange"
   />
   <div style="margin-top: 20px">

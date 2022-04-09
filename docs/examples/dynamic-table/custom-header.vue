@@ -1,5 +1,9 @@
 <template>
-  <ElDynamicTable :columns="columns" :data="filterTableData">
+  <ElDynamicTable
+    :columns="columns"
+    :data="filterTableData"
+    :pagination="false"
+  >
     <template #header>
       <el-input v-model="search" size="small" placeholder="Type to search" />
     </template>

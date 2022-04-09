@@ -2,6 +2,7 @@
   <ElDynamicTable
     :columns="columns"
     :data="tableData"
+    :pagination="false"
     :default-sort="{ prop: 'date', order: 'descending' }"
   />
 </template>

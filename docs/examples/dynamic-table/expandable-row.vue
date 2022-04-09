@@ -1,5 +1,5 @@
 <template>
-  <ElDynamicTable :columns="columns" :data="tableData">
+  <ElDynamicTable :columns="columns" :data="tableData" :pagination="false">
     <template #expand="{ row }">
       <p>State: {{ row.state }}</p>
       <p>City: {{ row.city }}</p>

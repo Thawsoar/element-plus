@@ -1,5 +1,10 @@
 <template>
-  <ElDynamicTable :columns="columns" :data="tableData" max-height="250">
+  <ElDynamicTable
+    :columns="columns"
+    :data="tableData"
+    max-height="250"
+    :pagination="false"
+  >
     <template #options="scope">
       <el-button
         type="text"

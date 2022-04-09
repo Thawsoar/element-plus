@@ -4,7 +4,12 @@
     <el-radio-button label="center" />
     <el-radio-button label="right" />
   </el-radio-group>
-  <ElDynamicTable :columns="columns" :data="tableData" :align="tableLayout" />
+  <ElDynamicTable
+    :columns="columns"
+    :data="tableData"
+    :align="tableLayout"
+    :pagination="false"
+  />
 </template>
 
 <script lang="ts" setup>

@@ -4,6 +4,7 @@
     :columns="columns"
     :data="tableData"
     style="width: 100%"
+    :pagination="false"
     @selection-change="handleSelectionChange"
   />
   <div style="margin-top: 20px">

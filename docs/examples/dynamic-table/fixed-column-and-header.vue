@@ -1,5 +1,10 @@
 <template>
-  <ElDynamicTable :columns="columns" :data="tableData" height="250" />
+  <ElDynamicTable
+    :columns="columns"
+    :data="tableData"
+    :pagination="false"
+    height="250"
+  />
 </template>
 
 <script lang="ts" setup>

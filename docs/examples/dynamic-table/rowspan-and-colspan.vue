@@ -3,12 +3,14 @@
     :columns="columns"
     :data="tableData"
     border
+    :pagination="false"
     :span-method="arraySpanMethod"
   />
   <ElDynamicTable
     :columns="columns"
     :data="tableData"
     border
+    :pagination="false"
     style="width: 100%; margin-top: 20px"
     :span-method="objectSpanMethod"
   />

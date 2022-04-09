@@ -6,6 +6,7 @@
     default-expand-all
     :columns="columns"
     :data="tableData"
+    :pagination="false"
   />
   <ElDynamicTable
     row-key="id"
@@ -15,6 +16,7 @@
     lazy
     :load="load"
     :tree-props="{ children: 'children', hasChildren: 'hasChildren' }"
+    :pagination="false"
   />
 </template>
 

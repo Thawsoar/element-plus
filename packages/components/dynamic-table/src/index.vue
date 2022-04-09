@@ -15,6 +15,19 @@ import ElPagination from '@element-plus/components/pagination'
 import defaultProps from '@element-plus/components/table/src/table/defaults'
 import RenderColumn from './renderColumn'
 import TableSetting from './tableSetting'
+import type paginationProps from '@element-plus/components/pagination/src/pagination'
+import type { ExtractPropTypes } from 'vue'
+export type PaginationProps = ExtractPropTypes<typeof paginationProps>
+// 默认初始导航配置
+const defaultPaginationProps = {
+  background: true,
+  pageSize: 50,
+  total: 0,
+  layout: 'prev, pager, next, total, sizes',
+  pageSizes: [10, 20, 30, 40, 50],
+  pagerCount: 7,
+  currentPage: 1,
+}
 const BaseDynamicTable = defineComponent({
   name: 'DynamicTable',
   components: {
@@ -36,52 +49,14 @@ const BaseDynamicTable = defineComponent({
       type: Array,
       default: () => [],
     },
-    columnsKeyName: null,
     align: {
       type: String,
       default: 'left',
     },
-    // 是否展示分页控件
-    showPagination: {
-      type: Boolean,
-      default: false,
-    },
-    currentPage: {
-      type: Number,
-      default: 1,
-    },
     pagination: {
-      type: Object,
+      type: [Boolean, Object],
       default: () => {
-        return {
-          currentPage: 1,
-          pageSize: 50,
-          total: 0,
-        }
-      },
-    },
-    pageSizes: {
-      type: Array,
-      default: () => [10, 20, 30, 40, 50],
-    },
-    layout: {
-      type: String,
-      default: 'prev, pager, next, total, sizes',
-    },
-    pagerCount: {
-      type: Number,
-      default: 7,
-    },
-    paginationStyle: {
-      type: Object,
-      default: () => {
-        return {
-          background: '#fff',
-          border: '1px solid #ebeef5',
-          borderRadius: '4px',
-          marginBottom: '10px',
-          padding: '10px',
-        }
+        return defaultPaginationProps
       },
     },
     // 单选按钮是否可勾选
@@ -103,32 +78,67 @@ const BaseDynamicTable = defineComponent({
       default: () => ['base-dynamic-table'],
     },
   },
+  emits: ['update:pagination', 'size-change', 'current-change', 'page-change'],
   setup(props, ctx) {
     const { emit, attrs, slots, expose } = ctx
     const table = ref()
     provide('tableRoot', ctx)
-    const page = reactive(props.pagination)
+    // 表格相关props
+    const tableProps = computed(() => {
+      const obj = {}
+      Object.keys(defaultProps).forEach((key) => {
+        if (props[key]) {
+          obj[key] = props[key]
+        }
+      })
+      return obj
+    })
+    // 是否展示导航
+    const showPagination = computed(() => props.pagination !== false)
+
+    const page = computed({
+      get() {
+        return Object.assign(defaultPaginationProps, props.pagination)
+      },
+      set(value) {
+        console.log(value)
+        emit('update:pagination', value)
+      },
+    }) as any
     const tableSettingDialogVisible = ref(false)
     const selectedShowColumns = ref([]) as any
     //当改变size的时候 可能会触发changePageNo，导致页面指示不正确
     let flag = false
     // 当前页面size改变
     const handleSizeChange = (val) => {
+      console.log('handleSizeChange', val)
       flag = true
-      page.pageSize = val
-      page.currentPage = 1
+      page.value = Object.assign(page.value, { pageSize: val, currentPage: 1 })
       emit('size-change', val)
-      emit('page-change', page)
+      emit('page-change', {
+        pageSize: val,
+        currentPage: page.value.currentPage,
+      })
       nextTick(() => {
         flag = false
       })
     }
     // 当前页改变
     const handleCurrentChange = (val) => {
+      console.log('handleCurrentChange', val)
       if (!flag) {
-        page.currentPage = val
+        // page.value = {
+        //   ...page.value,
+        //   currentPage: val,
+        // }
+        page.value = Object.assign(page.value, { currentPage: val })
+        console.log('page', page.value, val)
+
         emit('current-change', val)
-        emit('page-change', page)
+        emit('page-change', {
+          pageSize: page.value.pageSize,
+          currentPage: val,
+        })
       }
       flag = false
     }
@@ -155,16 +165,6 @@ const BaseDynamicTable = defineComponent({
       tableSettingDialogVisible.value = true
     }
     watch(
-      () => props.pagination,
-      (val) => {
-        Object.assign(page, val)
-      },
-      {
-        immediate: true,
-        deep: true,
-      }
-    )
-    watch(
       () => props.hideColumns,
       () => {
         initSelectedShowColumns()
@@ -176,15 +176,7 @@ const BaseDynamicTable = defineComponent({
     expose({
       table,
     })
-    const tableProps = computed(() => {
-      const obj = {}
-      Object.keys(defaultProps).forEach((key) => {
-        if (props[key]) {
-          obj[key] = props[key]
-        }
-      })
-      return obj
-    })
+
     return () => (
       <div class={props.customClass}>
         {props.showTableSetting && (
@@ -208,24 +200,16 @@ const BaseDynamicTable = defineComponent({
             )
           })}
         </el-table>
-        {props.showPagination && (
+        {showPagination.value && (
           // 分页组件
-          <div
-            class="base-pagination base-dynamic-table-pagination"
-            style={props.paginationStyle}
-          >
+          <div class="base-pagination base-dynamic-table-pagination">
             <div class="page-aside">{slots.pageAside?.()}</div>
             <el-pagination
               class="base-pagination--target"
-              background
+              {...page.value}
               v-model={[page.currentPage, 'currentPage']}
               onSizeChange={handleSizeChange}
               onCurrentChange={handleCurrentChange}
-              pageSizes={props.pageSizes}
-              pageSize={page.pageSize}
-              pagerCount={props.pagerCount}
-              layout={props.layout}
-              total={page.total}
             ></el-pagination>
           </div>
         )}

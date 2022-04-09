@@ -1,5 +1,5 @@
 <template>
-  <ElDynamicTable :columns="columns" :data="tableData">
+  <ElDynamicTable :columns="columns" :data="tableData" :pagination="false">
     <template #date="{ row }">
       <div style="display: flex; align-items: center">
         <el-icon><timer /></el-icon>

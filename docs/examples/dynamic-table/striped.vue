@@ -1,5 +1,10 @@
 <template>
-  <ElDynamicTable :columns="columns" :data="tableData" stripe />
+  <ElDynamicTable
+    :pagination="false"
+    :columns="columns"
+    :data="tableData"
+    stripe
+  />
 </template>
 
 <script lang="ts" setup>

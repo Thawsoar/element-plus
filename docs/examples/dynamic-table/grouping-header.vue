@@ -1,5 +1,5 @@
 <template>
-  <ElDynamicTable :columns="columns" :data="tableData" />
+  <ElDynamicTable :columns="columns" :data="tableData" :pagination="false" />
 </template>
 
 <script lang="ts" setup>

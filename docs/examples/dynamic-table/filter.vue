@@ -6,6 +6,7 @@
     :columns="columns"
     :data="tableData"
     row-key="date"
+    :pagination="false"
   >
     <template #tag="scope">
       <el-tag
