@@ -1,14 +1,14 @@
 #!/usr/bin/env sh
 
 # abort on errors
-set -e
+# set -e
 cd ../
 rm -rf docs/.vitepress/dist
 # # build
 # pnpm run docs:build
 
 # # navigate into the build output directory
-# cd docs/.vitepress/dist
+cd docs/.vitepress/dist
 
 # if you are deploying to a custom domain
 echo 'www.happyfly.top' > CNAME
