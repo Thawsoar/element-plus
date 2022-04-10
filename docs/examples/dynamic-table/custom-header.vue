@@ -20,7 +20,6 @@
 import { computed, ref } from '@vue/runtime-core'
 import { ElMessage } from 'element-plus'
 import { ElDynamicTable } from '@element-plus/components/dynamic-table'
-import { Timer } from '@element-plus/icons-vue'
 
 interface User {
   date: string
@@ -65,11 +64,17 @@ const columns = [
     label: 'Date',
     prop: 'date',
     width: 180,
+    showHeaderTooltip: true,
+    headerTooltipText: '我是提示内容',
   },
   {
     label: 'Name',
     prop: 'name',
     width: 180,
+    // 不建议使用
+    // renderHeader: ({ column }) => {
+    //   return <span>{column.label}</span>
+    // },
   },
   {
     label: 'Operations',

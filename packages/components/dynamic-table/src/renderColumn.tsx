@@ -1,11 +1,18 @@
 import { defineComponent } from 'vue'
 import { ElTableColumn } from '@element-plus/components/table'
+import { ElTooltip } from '@element-plus/components/tooltip'
+import { InfoFilled } from '@element-plus/icons-vue'
 import TableSlot from './slot'
 import TableSlotHeader from './slotHeader'
-
 const RenderColumn = defineComponent({
   name: 'RenderColumn',
-  components: { TableSlot, TableSlotHeader, ElTableColumn },
+  components: {
+    TableSlot,
+    TableSlotHeader,
+    ElTableColumn,
+    ElTooltip,
+    InfoFilled,
+  },
   props: {
     column: {
       type: Object,
@@ -29,25 +36,21 @@ const RenderColumn = defineComponent({
     const renderHeader = (configColumn) => {
       if (configColumn.showHeaderTooltip) {
         return (
-          <el-tooltip
-            placement="top"
-            effect="light"
-            content={configColumn.headerTooltipText}
-          >
-            <span
-              class={configColumn.cellredstar ? 'cell-header-red-star' : ''}
-            >
-              {configColumn.label}
-              <i class="table-header-tip-icon el-icon-question"></i>
-            </span>
-          </el-tooltip>
-        )
-      } else {
-        return (
-          <span class={configColumn.cellredstar ? 'cell-header-red-star' : ''}>
+          <span>
             {configColumn.label}
+            <el-tooltip
+              placement="top"
+              effect="light"
+              content={configColumn.headerTooltipText}
+            >
+              <span class="table-header-tip-icon" style="font-size: 12px">
+                <info-filled style="width: 14px;height: 14px; display: inline-block;margin: 0 0 3px 6px;" />
+              </span>
+            </el-tooltip>
           </span>
         )
+      } else {
+        return <span>{configColumn.label}</span>
       }
     }
     const columnRenderHeaderSlot = (column) => (scope) => {

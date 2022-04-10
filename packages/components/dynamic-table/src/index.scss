@@ -30,7 +30,7 @@ $color-separator: #e1e5ed;
 
 // 背景
 $color-background: #f3f3f5;
-.base-dynamic-table {
+.dynamic-table {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -38,7 +38,7 @@ $color-background: #f3f3f5;
   height: 100%;
   width: 100%;
 }
-.base-pagination {
+.pagination {
   width: 100%;
   display: flex;
   justify-content: space-between;
