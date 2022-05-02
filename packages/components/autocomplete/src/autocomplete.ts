@@ -1,15 +1,27 @@
 import { NOOP } from '@vue/shared'
 import {
-  isString,
-  isObject,
   buildProps,
   definePropType,
+  isObject,
+  isString,
 } from '@element-plus/utils'
 import { useTooltipContentProps } from '@element-plus/components/tooltip'
 import { UPDATE_MODEL_EVENT } from '@element-plus/constants'
 import type { ExtractPropTypes } from 'vue'
 import type Autocomplete from './autocomplete.vue'
 import type { Placement } from '@element-plus/components/popper'
+import type { Awaitable } from '@element-plus/utils'
+
+export type AutocompleteData = { value: string }[]
+export type AutocompleteFetchSuggestionsCallback = (
+  data: AutocompleteData
+) => void
+export type AutocompleteFetchSuggestions =
+  | ((
+      queryString: string,
+      cb: AutocompleteFetchSuggestionsCallback
+    ) => Awaitable<AutocompleteData> | void)
+  | AutocompleteData
 
 export const autocompleteProps = buildProps({
   valueKey: {
@@ -37,9 +49,7 @@ export const autocompleteProps = buildProps({
     default: 'bottom-start',
   },
   fetchSuggestions: {
-    type: definePropType<
-      (queryString: string, cb: (data: any[]) => void) => void
-    >(Function),
+    type: definePropType<AutocompleteFetchSuggestions>([Function, Array]),
     default: NOOP,
   },
   popperClass: {

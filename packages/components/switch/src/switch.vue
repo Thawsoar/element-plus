@@ -31,11 +31,7 @@
         inactiveText
       }}</span>
     </span>
-    <span
-      ref="core"
-      :class="ns.e('core')"
-      :style="{ width: (width || 40) + 'px' }"
-    >
+    <span ref="core" :class="ns.e('core')" :style="coreStyle">
       <div v-if="inlinePrompt" :class="ns.e('inner')">
         <template v-if="activeIcon || inactiveIcon">
           <el-icon
@@ -89,15 +85,15 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed, onMounted, ref, nextTick, watch } from 'vue'
+import { computed, defineComponent, nextTick, onMounted, ref, watch } from 'vue'
 import { isPromise } from '@vue/shared'
-import { isBoolean, throwError, debugWarn } from '@element-plus/utils'
+import { addUnit, debugWarn, isBoolean, throwError } from '@element-plus/utils'
 import ElIcon from '@element-plus/components/icon'
 import { Loading } from '@element-plus/icons-vue'
 import {
-  UPDATE_MODEL_EVENT,
   CHANGE_EVENT,
   INPUT_EVENT,
+  UPDATE_MODEL_EVENT,
 } from '@element-plus/constants'
 import {
   useDisabled,
@@ -105,7 +101,9 @@ import {
   useNamespace,
   useSize,
 } from '@element-plus/hooks'
-import { switchProps, switchEmits } from './switch'
+import { switchEmits, switchProps } from './switch'
+
+import type { CSSProperties } from 'vue'
 
 const COMPONENT_NAME = 'ElSwitch'
 
@@ -132,6 +130,10 @@ export default defineComponent({
       ns.is('disabled', switchDisabled.value),
       ns.is('checked', checked.value),
     ])
+
+    const coreStyle = computed<CSSProperties>(() => ({
+      width: addUnit(props.width),
+    }))
 
     watch(
       () => props.modelValue,
@@ -167,7 +169,7 @@ export default defineComponent({
       }
 
       if (props.validateEvent) {
-        formItem?.validate?.('change')
+        formItem?.validate?.('change').catch((err) => debugWarn(err))
       }
     })
 
@@ -246,6 +248,7 @@ export default defineComponent({
       switchDisabled,
       checked,
       switchKls,
+      coreStyle,
       handleChange,
       switchValue,
       focus,
