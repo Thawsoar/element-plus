@@ -9,6 +9,7 @@ import {
   onMounted,
   computed,
   getCurrentInstance,
+  watchEffect,
 } from 'vue'
 import { useOffsetPagination } from '@vueuse/core'
 import ElTable, { ElTableColumn } from '@element-plus/components/table'
@@ -88,10 +89,9 @@ const BaseDynamicTable = defineComponent({
     const vnodeProps = getCurrentInstance()!.vnode.props || {}
     // 判断pagination是否双向绑定了
     const hasPaginationListener = 'onUpdate:pagination' in vnodeProps
+    console.log(hasPaginationListener)
     // 是否是本地分页
-    const isLocalPagination = computed(
-      () => !hasPaginationListener && props.pagination !== false
-    )
+    const isLocalPagination = computed(() => !hasPaginationListener)
     // 表格ref dom expose出去用于elTable方法调用
     const table = ref()
     // 表格相关props
@@ -122,10 +122,12 @@ const BaseDynamicTable = defineComponent({
     let flag = false
     // 当前页面size改变
     const handleSizeChange = (val) => {
-      console.log('handleSizeChange', val)
       if (isLocalPagination.value) {
-        useOffsetPaginationReturn.value.currentPageSize = val
-        useOffsetPaginationReturn.value.currentPage = 1
+        console.log('handleSizeChange', val)
+        // useOffsetPaginationReturn.value.currentPageSize = val
+        // useOffsetPaginationReturn.value.currentPage = 1
+        globalCurrentPageSize.value = val
+        globalCurrentPage.value = 1
       }
       // flag = true
       page.value = Object.assign(page.value, {
@@ -143,9 +145,9 @@ const BaseDynamicTable = defineComponent({
     }
     // 当前页改变
     const handleCurrentChange = (val) => {
-      console.log('handleCurrentChange', val)
       if (isLocalPagination.value) {
-        useOffsetPaginationReturn.value.currentPage = val
+        console.log('handleCurrentChange', val)
+        globalCurrentPage.value = val
       }
       if (!flag) {
         page.value = Object.assign(page.value, { currentPage: val })
@@ -181,31 +183,63 @@ const BaseDynamicTable = defineComponent({
       tableData.value = fetch(currentPage, currentPageSize)
     }
     // 监听数据长度 重新设置分页
-    const useOffsetPaginationReturn = ref()
-    watch(
-      () => props.data.length,
-      () => {
-        // 判断pagination开启并且双向绑定了，如果双向绑定了意味着远程调用接口数据进行分页，否则传入固定条数数据进行分页展示
-        if (isLocalPagination.value) {
+    let globalCurrentPage
+    let globalCurrentPageSize
+    if (isLocalPagination.value) {
+      watchEffect(() => {
+        console.log('watchEffect', isLocalPagination.value)
+        if (isLocalPagination.value && props.data.length) {
           fetchData({
             currentPage: page.value.currentPage,
             currentPageSize: page.value.pageSize,
           })
-          page.value = Object.assign(page.value, { total: props.data.length })
-
-          useOffsetPaginationReturn.value = useOffsetPagination({
+          console.log(page.value, 'before')
+          Object.assign(page.value, { total: props.data.length })
+          console.log(page.value)
+          const { currentPage, currentPageSize } = useOffsetPagination({
             total: props.data.length,
             page: page.value.currentPage,
             pageSize: page.value.pageSize,
             onPageChange: fetchData,
             onPageSizeChange: fetchData,
           })
+          globalCurrentPage = currentPage
+          globalCurrentPageSize = currentPageSize
+        } else {
+          // useOffsetPaginationReturn.value = null
         }
-      },
-      {
-        immediate: true,
-      }
-    )
+      })
+    } else {
+      // useOffsetPaginationReturn.value = null
+    }
+    // watch(
+    //   () => props.data.length,
+    //   () => {
+    //     // 判断pagination开启并且双向绑定了，如果双向绑定了意味着远程调用接口数据进行分页，否则传入固定条数数据进行分页展示
+    //     console.log(isLocalPagination.value)
+    //     if (isLocalPagination.value) {
+    //       fetchData({
+    //         currentPage: page.value.currentPage,
+    //         currentPageSize: page.value.pageSize,
+    //       })
+    //       console.log(page.value, 'before')
+    //       Object.assign(page.value, { total: props.data.length })
+    //       console.log(page.value)
+    //       useOffsetPaginationReturn.value = useOffsetPagination({
+    //         total: props.data.length,
+    //         page: page.value.currentPage,
+    //         pageSize: page.value.pageSize,
+    //         onPageChange: fetchData,
+    //         onPageSizeChange: fetchData,
+    //       })
+    //     } else {
+    //       useOffsetPaginationReturn.value = null
+    //     }
+    //   },
+    //   {
+    //     immediate: true,
+    //   }
+    // )
     // 确认表格设置
     // 选择展示的列
     const selectedShowColumns = ref([]) as any

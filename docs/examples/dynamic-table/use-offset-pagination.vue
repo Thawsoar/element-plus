@@ -1,5 +1,6 @@
 <template>
   <ElDynamicTable
+    key="use-offset-pagination"
     v-loading="loading"
     :pagination="pagination"
     max-height="300px"
@@ -20,7 +21,6 @@
 
 <script setup lang="ts">
 import { onMounted, ref, reactive, nextTick } from 'vue'
-import { useOffsetPagination } from '@vueuse/core'
 import ElDynamicTable from '@element-plus/components/dynamic-table'
 
 const columns = [

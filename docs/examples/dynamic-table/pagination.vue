@@ -1,5 +1,6 @@
 <template>
   <ElDynamicTable
+    key="pagination"
     v-model:pagination="pagination"
     v-loading="loading"
     max-height="300px"
