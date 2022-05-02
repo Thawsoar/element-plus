@@ -1,6 +1,6 @@
 <template>
   <header :class="ns.b()" :style="style">
-    <slot></slot>
+    <slot />
   </header>
 </template>
 <script lang="ts">
@@ -24,9 +24,9 @@ export default defineComponent({
       style: computed(
         () =>
           (props.height
-            ? {
-                '--el-header-height': props.height,
-              }
+            ? ns.cssVarBlock({
+                height: props.height,
+              })
             : {}) as CSSProperties
       ),
       ns,

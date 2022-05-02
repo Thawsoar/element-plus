@@ -1,6 +1,6 @@
 <template>
   <aside :class="ns.b()" :style="style">
-    <slot></slot>
+    <slot />
   </aside>
 </template>
 <script lang="ts">
@@ -23,7 +23,7 @@ export default defineComponent({
     return {
       style: computed(() => {
         return props.width
-          ? ({ '--el-aside-width': props.width } as CSSProperties)
+          ? (ns.cssVarBlock({ width: props.width }) as CSSProperties)
           : {}
       }),
       ns,
