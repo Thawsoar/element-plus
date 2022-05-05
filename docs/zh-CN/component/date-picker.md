@@ -165,19 +165,19 @@ interface DateCell {
 | validate-event        | 输入时是否触发表单的校验                                                                   | boolean                                          | -                                                                                                | true        |
 | disabled-date         | 一个用来判断该日期是否被禁用的函数，接受一个 Date 对象作为参数。 应该返回一个 Boolean 值。 | function                                         | —                                                                                                | —           |
 | shortcuts             | 设置快捷选项，需要传入数组对象                                                             | object[{ text: string, value: date / function }] | —                                                                                                | —           |
-| cell-class-name       | set custom className                                                                       | Function(Date)                                   | —                                                                                                | —           |
-| teleported            | whether date-picker dropdown is teleported to the body                                     | boolean                                          | true / false                                                                                     | true        |
+| cell-class-name       | 设置自定义类名                                                                             | Function(Date)                                   | —                                                                                                | —           |
+| teleported            | 是否将 date-picker 的下拉列表插入至 body 元素                                              | boolean                                          | true / false                                                                                     | true        |
 
 ## 事件
 
-| 事件名          | 说明                                                                                           | 回调参数                                  |
-| --------------- | ---------------------------------------------------------------------------------------------- | ----------------------------------------- |
-| change          | 用户确认选定的值时触发                                                                         | 组件绑定值                                |
-| blur            | 在组件 Input 失去焦点时触发                                                                    | 组件实例                                  |
-| focus           | 在组件 Input 获得焦点时触发                                                                    | 组件实例                                  |
-| calendar-change | 如果用户没有选择日期，那默认展示当前日的月份。 你可以使用 `default-value` 来设置成其他的日期。 | [Date, Date]                              |
-| panel-change    | 当日期面板改变时触发。                                                                         | `(date, mode, view)`                      |
-| visible-change  | triggers when the DatePicker's dropdown appears/disappears                                     | true when it appears, and false otherwise |
+| 事件名          | 说明                                                                                           | 回调参数                      |
+| --------------- | ---------------------------------------------------------------------------------------------- | ----------------------------- |
+| change          | 用户确认选定的值时触发                                                                         | 组件绑定值                    |
+| blur            | 在组件 Input 失去焦点时触发                                                                    | 组件实例                      |
+| focus           | 在组件 Input 获得焦点时触发                                                                    | 组件实例                      |
+| calendar-change | 如果用户没有选择日期，那默认展示当前日的月份。 你可以使用 `default-value` 来设置成其他的日期。 | [Date, Date]                  |
+| panel-change    | 当日期面板改变时触发。                                                                         | `(date, mode, view)`          |
+| visible-change  | 当 DatePicker 的下拉列表出现/消失时触发                                                        | 出现时为 true，隐藏时为 false |
 
 ## 方法
 

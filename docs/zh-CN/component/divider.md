@@ -47,8 +47,14 @@ divider/vertical-divider
 
 ## Divider 属性
 
-| 属性             | 说明                 | 类型   | 可选值                                                                            | 默认值     |
-| ---------------- | -------------------- | ------ | --------------------------------------------------------------------------------- | ---------- |
-| direction        | 设置分割线方向       | string | horizontal / vertical                                                             | horizontal |
-| border-style     | 设置分隔符样式       | string | [CSS/border-style](https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-style) | solid      |
-| content-position | 设置分割线文案的位置 | string | left / right / center                                                             | center     |
+| 属性             | 说明                   | 类型   | 可选值                                                                            | 默认值     |
+| ---------------- | ---------------------- | ------ | --------------------------------------------------------------------------------- | ---------- |
+| direction        | 设置分割线方向         | string | horizontal / vertical                                                             | horizontal |
+| border-style     | 设置分隔符样式         | string | [CSS/border-style](https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-style) | solid      |
+| content-position | 自定义分隔线内容的位置 | string | left / right / center                                                             | center     |
+
+## 插槽
+
+| 事件名 | Description          |
+| ------ | -------------------- |
+| —      | 设置分割线文案的位置 |

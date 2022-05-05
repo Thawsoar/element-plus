@@ -13,8 +13,6 @@ Element Plus 提供了一套常用的图标集合。
 
 - 如若想查看所有可用的 SVG 图标请查阅 [@element-plus/icons-vue](https://unpkg.com/browse/@element-plus/icons-vue@latest/dist/es/) 和 [element-plus-icons](https://github.com/element-plus/element-plus-icons) 的源代码或当前页的 [Icon Collection](#icons-collection)
 
-- CDN 导入和 [自动导入](https://github.com/antfu/unplugin-icons) 正在开发中。
-
 ## 安装
 
 ### 使用包管理器
@@ -30,30 +28,76 @@ $ yarn add @element-plus/icons-vue
 $ pnpm install @element-plus/icons-vue
 ```
 
-## 基础用法
+### 注册所有图标
+
+You need import all icons from `@element-plus/icons-vue` and register them globally.
+
+```ts
+// main.ts
+
+// if you're using CDN, please remove this line.
+import * as ElementPlusIconsVue from '@element-plus/icons-vue'
+
+const app = createApp(App)
+for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
+  app.component(key, component)
+}
+```
+
+您也可以参考 [此模板](https://codepen.io/sxzz/pen/xxpvdrg)。
+
+### Import in Browser
+
+Import Element Plus Icons through browser HTML tags directly, and use global variable `ElementPlusIconsVue`.
+
+According to different CDN providers, there are different introduction methods. Here we use [unpkg](https://unpkg.com) and [jsDelivr](https://jsdelivr.com) as example. You can also use other CDN providers.
+
+#### unpkg
+
+```html
+<script src="//unpkg.com/@element-plus/icons-vue"></script>
+```
+
+#### jsDelivr
+
+```html
+<script src="//cdn.jsdelivr.net/npm/@element-plus/icons-vue"></script>
+```
+
+:::tip
+
+We recommend using CDN to import Element Plus users to lock the version on the link address, so as not to be affected by incompatible updates when Element Plus is upgraded in the future. Please check [unpkg.com](https://unpkg.com) for the method to lock the version.
+
+:::
+
+### 自动导入
+
+Use [unplugin-icons](https://github.com/antfu/unplugin-icons) and [unplugin-auto-import](https://github.com/antfu/unplugin-auto-import) to automatically import any icon collections from iconify. You can refer to [this template](https://github.com/sxzz/element-plus-best-practices/blob/db2dfc983ccda5570033a0ac608a1bd9d9a7f658/vite.config.ts#L21-L58).
+
+## Simple Usage
 
 :::warning
 
-由于 HTML 标准已经定义了一个名为 [menu](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/menu) 的标签，如果你注册的 `Menu` 无法正常工作，则需要使用别名来渲染图标。
+Because HTML standard has already defined a tag named [menu](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/menu), so you need to use an alias in order to render the icon, if you register `Menu` directly it will not work.
 
 :::
 
 ```vue
-<!-- 使用 el-icon 标签来包裹 SVG 图标 -->
+<!-- Use el-icon to provide attributes to SVG icon -->
 <template>
   <div>
     <el-icon :size="size" :color="color">
       <edit />
     </el-icon>
-    <!-- 也可以直接使用图标标签，无需父标签包裹 -->
+    <!-- Or use it independently without derive attributes from parent -->
     <edit />
   </div>
 </template>
 ```
 
-<script setup>
+<vp-script setup>
 import { Edit, Share, Delete, Search, Loading } from '@element-plus/icons-vue'
-</script>
+</vp-script>
 
 <ElRow>
   <div>
@@ -66,13 +110,13 @@ import { Edit, Share, Delete, Search, Loading } from '@element-plus/icons-vue'
 
 ## 结合 el-icon 使用
 
-`el-icon` 为原始的 SVG 图标提供额外的属性，更多细节详见结尾。
+`el-icon` provides extra attributes for raw SVG icon, for more detail, please read to the end.
 
 ```vue
 <template>
   <p>
-    当增加了 <b>is-loading</b> 类时，图标可以每两秒完整转 360
-    度，你也可以覆写该属性
+    with extra class <b>is-loading</b>, your icon is able to rotate 360 deg in 2
+    seconds, you can also override this
   </p>
   <el-icon :size="20">
     <edit />
@@ -87,10 +131,10 @@ import { Edit, Share, Delete, Search, Loading } from '@element-plus/icons-vue'
     <loading />
   </el-icon>
   <el-button type="primary">
-    <el-icon style="vertical-align: middle;">
+    <el-icon style="vertical-align: middle">
       <search />
     </el-icon>
-    <span style="vertical-align: middle;"> 搜索 </span>
+    <span style="vertical-align: middle"> Search </span>
   </el-button>
 </template>
 ```
@@ -126,8 +170,8 @@ import { Edit, Share, Delete, Search, Loading } from '@element-plus/icons-vue'
 ```vue
 <template>
   <div style="font-size: 20px">
-    <!-- SVG 图标默认不携带任何属性 -->
-    <!-- 你需要直接提供它们 -->
+    <!-- Since svg icons do not carry any attributes by default -->
+    <!-- You need to provide attributes directly -->
     <edit style="width: 1em; height: 1em; margin-right: 8px" />
     <share style="width: 1em; height: 1em; margin-right: 8px" />
     <delete style="width: 1em; height: 1em; margin-right: 8px" />
@@ -151,9 +195,9 @@ import { Edit, Share, Delete, Search, Loading } from '@element-plus/icons-vue'
 
 :::tip
 
-只要你安装了图标组件库，**即可在任意版本中使用 SVG 图标**
+**You can use SVG icon in any version** as long as you install it
 
-**您可以点击图标复制代码**
+**You can click the icon to copy it**
 
 :::
 

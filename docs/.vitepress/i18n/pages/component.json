@@ -207,6 +207,11 @@
           "text": "Tree"
         },
         {
+          "link": "/tree-select",
+          "text": "TreeSelect",
+          "promotion": "2.1.8"
+        },
+        {
           "link": "/tree-v2",
           "text": "Virtualized Tree"
         }
@@ -509,25 +514,30 @@
           "text": "Table 表格"
         },
         {
+          "link": "/table-v2",
+          "text": "Virtualized Table",
+          "promotion": "2.2.0"
+        },
+        {
           "link": "/tag",
-          "text": "Tag 标签"
+          "text": "Tag"
         },
         {
           "link": "/timeline",
-          "text": "Timeline 时间线"
+          "text": "Timeline"
         },
         {
           "link": "/tree",
-          "text": "Tree 树形控件"
+          "text": "Tree"
         },
         {
           "link": "/tree-select",
-          "text": "TreeSelect 树选择",
+          "text": "TreeSelect",
           "promotion": "2.1.8"
         },
         {
           "link": "/tree-v2",
-          "text": "Tree V2 虚拟化树形控件"
+          "text": "Virtualized Tree"
         }
       ]
     },
@@ -619,15 +629,6 @@
         {
           "link": "/divider",
           "text": "Divider 分割线"
-        }
-      ]
-    },
-    "business": {
-      "text": "Business 业务",
-      "children": [
-        {
-          "link": "/dynamic-table",
-          "text": "DynamicTable 动态表格"
         }
       ]
     }

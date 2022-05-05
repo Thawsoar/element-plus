@@ -7,7 +7,7 @@ lang: zh-CN
 
 :::tip
 
-这个组件目前在测试当中，如果在使用中发现任何漏洞和问题，请在[ Github](https://github.com/element-plus/element-plus/issues)中提交 issue 以便我们进行处理。
+这个组件目前在测试当中，如果在使用中发现任何漏洞和问题，请在 [GitHub](https://github.com/element-plus/element-plus/issues) 中提交 issue 以便我们进行处理。
 
 :::
 
@@ -125,37 +125,36 @@ select-v2/remote-search
 
 ## SelectV2 属性
 
-| 属性                              | 说明                                                                                                                                     | 类型                               | 可选值              | 默认值        |
-| --------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------- | ------------------- | ------------- |
-| model-value / v-model             | 绑定值                                                                                                                                   | string / number / boolean / object | —                   | —             |
-| multiple                          | 是否多选                                                                                                                                 | boolean                            | —                   | false         |
-| disabled                          | 是否禁用                                                                                                                                 | boolean                            | —                   | false         |
-| value-key                         | 作为 value 唯一标识的键名，绑定值为对象类型时必填                                                                                        | string                             | —                   | value         |
-| size                              | 输入框尺寸                                                                                                                               | string                             | large/default/small | default       |
-| clearable                         | 是否可以清空选项                                                                                                                         | boolean                            | —                   | false         |
-| clear-icon                        | 自定义清除图标                                                                                                                           | string / component                 | —                   | CircleClose   |
-| collapse-tags                     | 多选时是否将选中值按文字的形式展示                                                                                                       | boolean                            | —                   | false         |
-| collapse-tags-tooltip             | 当鼠标悬停于折叠标签的文本时，是否显示所有选中的标签。 只有当 `collapse-tags` 设置为 true 时才会生效。                                   | boolean                            | true / false        | false         |
-| multiple-limit                    | maximum number of options user can select when multiple is true. No limit when set to 0                                                  | number                             | —                   | 0             |
-| name                              | the name attribute of select input                                                                                                       | string                             | —                   | —             |
-| effect                            | Tooltip theme, built-in theme: `dark` / `light`                                                                                          | string                             | string              | light         |
-| autocomplete                      | autocomplete of select input                                                                                                             | string                             | —                   | off           |
-| placeholder                       | the autocomplete attribute of select input                                                                                               | string                             | —                   | Please select |
-| filterable                        | is filterable                                                                                                                            | boolean                            | —                   | false         |
-| allow-create                      | whether creating new items is allowed. To use this, `filterable` must be true                                                            | boolean                            | —                   | false         |
-| reserve-keyword                   | whether reserve the keyword after select filtered option.                                                                                | boolean                            | —                   | true          |
-| no-data-text                      | displayed text when there is no options, you can also use slot empty                                                                     | string                             | —                   | No Data       |
-| popper-class                      | custom class name for Select's dropdown                                                                                                  | string                             | —                   | —             |
-| popper-append-to-body(deprecated) | whether to append the popper menu to body. If the positioning of the popper is wrong, you can try to set this prop to false              | boolean                            | -                   | false         |
-| teleported                        | whether select dropdown is teleported to the body                                                                                        | boolean                            | true / false        | true          |
-| persistent                        | when select dropdown is inactive and `persistent` is `false`, select dropdown will be destroyed                                          | boolean                            | true / false        | true          |
-| popper-options                    | Customized popper option see more at [popper.js](https://popper.js.org/documentation.html)                                               | object                             | -                   | -             |
-| automatic-dropdown                | for non-filterable Select, this prop decides if the option menu pops up when the input is focused                                        | boolean                            | -                   | false         |
-| clear-icon                        | Customized clear icon component                                                                                                          | string / Component                 | —                   | CircleClose   |
-| height                            | The height of the dropdown panel, 34px for each item                                                                                     | number                             | -                   | 170           |
-| scrollbar-always-on               | Controls whether the scrollbar is always displayed                                                                                       | boolean                            | -                   | false         |
-| remote                            | whether search data from server                                                                                                          | boolean                            | —                   | false         |
-| remote-method                     | function that gets called when the input value changes. Its parameter is the current input value. To use this, `filterable` must be true | function(keyword: string)          | —                   | —             |
+| 属性                              | 说明                                                                                                   | 类型                               | 可选值              | 默认值        |
+| --------------------------------- | ------------------------------------------------------------------------------------------------------ | ---------------------------------- | ------------------- | ------------- |
+| model-value / v-model             | 绑定值                                                                                                 | string / number / boolean / object | —                   | —             |
+| multiple                          | 是否多选                                                                                               | boolean                            | —                   | false         |
+| disabled                          | 是否禁用                                                                                               | boolean                            | —                   | false         |
+| value-key                         | 作为 value 唯一标识的键名，绑定值为对象类型时必填                                                      | string                             | —                   | value         |
+| size                              | 输入框尺寸                                                                                             | string                             | large/default/small | default       |
+| clearable                         | 是否可以清空选项                                                                                       | boolean                            | —                   | false         |
+| clear-icon                        | 自定义清除图标                                                                                         | string / Component                 | —                   | CircleClose   |
+| collapse-tags                     | 多选时是否将选中值按文字的形式展示                                                                     | boolean                            | —                   | false         |
+| collapse-tags-tooltip             | 当鼠标悬停于折叠标签的文本时，是否显示所有选中的标签。 只有当 `collapse-tags` 设置为 true 时才会生效。 | boolean                            | true / false        | false         |
+| multiple-limit                    | 多选时可被选择的最大数目。 当被设置为 0 时，可被选择的数目不设限。                                     | number                             | —                   | 0             |
+| name                              | 选择器的原生 name 属性                                                                                 | string                             | —                   | —             |
+| effect                            | 文字提示（Tooltip）的主题，内置`dark`和`light`两种。                                                   | string                             | string              | light         |
+| autocomplete                      | 自动完成选择输入                                                                                       | string                             | —                   | off           |
+| placeholder                       | select input 的原生 autocomplete 属性                                                                  | string                             | —                   | Please select |
+| filterable                        | 是否可筛选                                                                                             | boolean                            | —                   | false         |
+| allow-create                      | 是否允许创建新条目， 当使用该属性时，`filterable`必须设置为`true`                                      | boolean                            | —                   | false         |
+| reserve-keyword                   | 筛选时，是否在选择选项后保留关键字                                                                     | boolean                            | —                   | true          |
+| no-data-text                      | 当在没有数据时显示的文字，你同时可以使用`#empty`插槽进行设置。                                         | string                             | —                   | No Data       |
+| popper-class                      | 选择器下拉菜单的自定义类名                                                                             | string                             | —                   | —             |
+| popper-append-to-body(deprecated) | 是否将弹出框插入至 body 元素 当弹出框的位置出现问题时，你可以尝试将该属性设置为 false。                | boolean                            | -                   | false         |
+| teleported                        | 该下拉菜单是否使用 teleport 插入 body 元素                                                             | boolean                            | true / false        | true          |
+| persistent                        | 当下拉选择器未被激活并且`persistent`设置为`false`，选择器会被删除。                                    | boolean                            | true / false        | true          |
+| popper-options                    | 自定义[popper.js](https://popper.js.org/documentation.html)参数                                        | object                             | -                   | -             |
+| automatic-dropdown                | 对于不可过滤的 Select 组件，此属性决定是否在输入框获得焦点后自动弹出选项菜单                           | boolean                            | -                   | false         |
+| height                            | 下拉菜单的高度，每一个子选项的高度是 34px                                                              | number                             | -                   | 170           |
+| scrollbar-always-on               | 控制是否总是展示滚动条                                                                                 | boolean                            | -                   | false         |
+| remote                            | 是否从服务器搜索数据                                                                                   | boolean                            | —                   | false         |
+| remote-method                     | 当输入值发生变化时被调用的函数。 其参数是当前输入值。 只有当 `filterable` 设置为 true 时才会生效。     | function(keyword: string)          | —                   | —             |
 
 <span style="display: none;">
 <!-- | default-first-option | 在输入框按下回车，选择第一个匹配项。需配合 `filterable` 或 `remote` 使用 | boolean | - | false |

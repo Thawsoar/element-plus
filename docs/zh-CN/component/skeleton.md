@@ -87,9 +87,9 @@ skeleton/avoiding-rendering-bouncing
 
 ## Skeleton API
 
-### Skeleton Attributes
+### Skeleton 属性
 
-| 属性       | 说明                                        | 类型      | Default |
+| 属性       | 说明                                        | 类型      | 默认值  |
 | ---------- | ------------------------------------------- | --------- | ------- |
 | `animated` | 是否使用动画                                | `boolean` | `false` |
 | `count`    | 渲染多少个 template, 建议使用尽可能小的数字 | `number`  | `1`     |
@@ -97,17 +97,17 @@ skeleton/avoiding-rendering-bouncing
 | `rows`     | 骨架屏段落数量                              | `number`  | `3`     |
 | `throttle` | 延迟占位 DOM 渲染的时间, 单位是毫秒         | `number`  | `0`     |
 
-### Skeleton Slots
+### Skeleton 插槽
 
-| Name       | 说明                               | Scope             |
-| ---------- | ---------------------------------- | ----------------- |
-| `default`  | Real rendering DOM                 | `$attrs`          |
-| `template` | Custom rendering skeleton template | `{ key: number }` |
+| 插槽名     | 说明                     | 作用域            |
+| ---------- | ------------------------ | ----------------- |
+| `default`  | 正在渲染的 DOM           | `$attrs`          |
+| `template` | 自定义渲染 skeleton 模板 | `{ key: number }` |
 
 ## Skeleton Item API
 
-### Skeleton Item Attributes
+### Skeleton Item 属性
 
-| Attribute | 说明                                | Type                                                                                                | Default  |
-| --------- | ----------------------------------- | --------------------------------------------------------------------------------------------------- | -------- |
-| `variant` | The current rendering skeleton type | `'p' \| 'text' \| 'h1' \| 'h3' \| 'text' \| 'caption' \| 'button' \| 'image' \| 'circle' \| 'rect'` | `'text'` |
+| 属性      | 说明                   | 类型                                                                                                | 默认值   |
+| --------- | ---------------------- | --------------------------------------------------------------------------------------------------- | -------- |
+| `variant` | 当前渲染 skeleton 类型 | `'p' \| 'text' \| 'h1' \| 'h3' \| 'text' \| 'caption' \| 'button' \| 'image' \| 'circle' \| 'rect'` | `'text'` |

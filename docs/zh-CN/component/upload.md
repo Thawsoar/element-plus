@@ -39,7 +39,7 @@ upload/avatar
 
 :::demo
 
-upload/photo-album
+upload/photo-wall
 
 :::
 

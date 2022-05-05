@@ -51,15 +51,15 @@ badge/dot
 
 ### Badge 属性
 
-| 属性     | 说明                                                                            | 类型                                                        | 默认值     |
-| -------- | ------------------------------------------------------------------------------- | ----------------------------------------------------------- | ---------- |
-| `value`  | display value.                                                                  | `string \| number`                                          | `''`       |
-| `max`    | maximum value, shows `{max}+` when exceeded. Only works if `value` is a number. | `number`                                                    | `99`       |
-| `is-dot` | if a little dot is displayed.                                                   | `boolean`                                                   | `false`    |
-| `hidden` | hidden badge.                                                                   | `boolean`                                                   | `false`    |
-| `type`   | button type.                                                                    | `'primary' \| 'success' \| 'warning' \| 'danger' \| 'info'` | `'danger'` |
+| 属性     | 说明                                                                      | 类型                                                        | 默认值     |
+| -------- | ------------------------------------------------------------------------- | ----------------------------------------------------------- | ---------- |
+| `value`  | 显示值                                                                    | `string \| number`                                          | `''`       |
+| `max`    | 最大值，超过最大值会显示 `{max}+`。 只有当 `value` 是数字类型时才会工作。 | `number`                                                    | `99`       |
+| `is-dot` | 是否显示小圆点。                                                          | `boolean`                                                   | `false`    |
+| `hidden` | 是否隐藏 Badge。                                                          | `boolean`                                                   | `false`    |
+| `type`   | badge 类型。                                                              | `'primary' \| 'success' \| 'warning' \| 'danger' \| 'info'` | `'danger'` |
 
-### Badge Slots
+### Badge 插槽
 
 | 插槽名    | 说明           |
 | --------- | -------------- |

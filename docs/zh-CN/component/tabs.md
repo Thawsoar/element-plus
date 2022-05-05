@@ -90,13 +90,13 @@ tabs/customized-trigger
 
 ## Tabs 事件
 
-| 事件名     | 说明                                                  | 回调参数                                                             |
-| ---------- | ----------------------------------------------------- | -------------------------------------------------------------------- |
-| tab-click  | tab 被选中时触发                                      | (pane: `TabsPaneContext`, ev: `Event`)                               |
-| tab-change | triggers when `activeName` is changed                 | (name: `TabPanelName`)                                               |
-| tab-remove | triggers when tab-remove button is clicked            | (name: `TabPanelName`)                                               |
-| tab-add    | triggers when tab-add button is clicked               | —                                                                    |
-| edit       | triggers when tab-add button or tab-remove is clicked | (paneName: `TabPanelName \| undefined`, action: `'remove' \| 'add'`) |
+| 事件名     | 说明                            | 回调参数                                                             |
+| ---------- | ------------------------------- | -------------------------------------------------------------------- |
+| tab-click  | tab 被选中时触发                | (pane: `TabsPaneContext`, ev: `Event`)                               |
+| tab-change | `activeName` 改变时触发         | (name: `TabPanelName`)                                               |
+| tab-remove | 点击 tab 移除按钮时触发         | (name: `TabPanelName`)                                               |
+| tab-add    | 点击 tab 新增按钮时触发         | —                                                                    |
+| edit       | 点击 tab 的新增或移除按钮后触发 | (paneName: `TabPanelName \| undefined`, action: `'remove' \| 'add'`) |
 
 ## Tabs 插槽
 

@@ -1,87 +1,87 @@
 ---
-title: TreeSelect
-lang: en-US
+title: TreeSelect 树形选择
+lang: zh-CN
 ---
 
-# TreeSelect
+# TreeSelect 树形选择
 
-The tree selector of the dropdown menu, it combines the functions of components `el-tree` and `el-select`.
+含有下拉菜单的树形选择器，结合了 `el-tree` 和 `el-select` 两个组件的功能。
 
-## Basic usage
+## 基础用法
 
-Selector for tree structures.
+树状选择器
 
-<!-- :::demo
+:::demo
 
 tree-select/basic
 
-::: -->
+:::
 
-## Select any level
+## 选择任意级别
 
-When using the `check-strictly=true` attribute, any node can be checked, otherwise only leaf nodes are supported.
+当属性 `check-strictly=true` 时，任何节点都可以被选择，否则只有子节点可被选择。
 
-<!-- :::demo
+:::demo
 
 tree-select/check-strictly
 
-::: -->
+:::
 
-## Multiple Selection
+## 多选
 
-Multiple selection using clicks or checkbox.
+通过点击或复选框选择多个选项。
 
-<!-- :::demo
+:::demo
 
 tree-select/multiple
 
-::: -->
+:::
 
-## Disabled Selection
+## 禁用选项
 
-Disable options using the disabled field.
+使用 disabled 字段禁用选项。
 
-<!-- :::demo
+:::demo
 
 tree-select/disabled
 
-::: -->
+:::
 
-## Filterable
+## 可筛选
 
-Use keyword filtering or custom filtering methods. `filterMethod` can custom filter method for data, `filterNodeMethod` can custom filter method for data node.
+使用关键字筛选或自定义筛选方法。 `filterMethod`可以自定义数据筛选的方法， `filterNodeMethod`可以自定义节点数据筛选的方法。
 
-<!-- :::demo
+:::demo
 
 tree-select/filterable
 
-::: -->
+:::
 
-## Custom content
+## 自定义内容
 
-Contents of custom tree nodes.
+自定义树节点的内容。
 
-<!-- :::demo
+:::demo
 
 tree-select/slots
 
-::: -->
+:::
 
-## LazyLoad
+## 懒加载
 
-Lazy loading of tree nodes, suitable for large data lists.
+树节点懒加载，更加适合于数据量大的列表。
 
-<!-- :::demo
+:::demo
 
 tree-select/lazy
 
-::: -->
+:::
 
-## Attributes
+## TreeSelect 属性
 
-Since this component combines the functions of components `el-tree` and `el-select`, the original properties have not been changed, so no repetition here, and please go to the original component to view the documentation.
+由于这个组件是`el-tree`和`el-select`的结合体，他们的原始属性未被更改，故不在此重复。请跳转查看原组件的相应文档。
 
-| Attributes                              | Methods                       | Events                              | Slots                              |
+| 属性                                    | 方法                          | 事件                                | 插槽                               |
 | --------------------------------------- | ----------------------------- | ----------------------------------- | ---------------------------------- |
 | [tree](./tree.md#attributes)            | [tree](./tree.md#method)      | [tree](./tree.md#events)            | [tree](./tree.md#slots)            |
 | [select](./select.md#select-attributes) | [select](./select.md#methods) | [select](./select.md#select-events) | [select](./select.md#select-slots) |

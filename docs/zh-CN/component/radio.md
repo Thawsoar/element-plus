@@ -80,13 +80,13 @@ radio/with-borders
 
 ## Radio-group 属性
 
-| 属性                  | 说明                                    | 类型                      | 可选值                | 默认值  |
-| --------------------- | --------------------------------------- | ------------------------- | --------------------- | ------- |
-| model-value / v-model | 绑定值                                  | string / number / boolean | —                     | —       |
-| size                  | 单选框组尺寸                            | string                    | large / small / small | default |
-| disabled              | 是否禁用                                | boolean                   | —                     | false   |
-| text-color            | 按钮形式的 Radio 激活时的文本颜色       | string                    | —                     | #ffffff |
-| fill                  | 按钮形式的 Radio 激活时的填充色和边框色 | string                    | —                     | #409EFF |
+| 属性                  | 说明                                    | 类型                      | 可选值                  | 默认值  |
+| --------------------- | --------------------------------------- | ------------------------- | ----------------------- | ------- |
+| model-value / v-model | 绑定值                                  | string / number / boolean | —                       | —       |
+| size                  | 单选框组尺寸                            | string                    | large / default / small | default |
+| disabled              | 是否禁用                                | boolean                   | —                       | false   |
+| text-color            | 按钮形式的 Radio 激活时的文本颜色       | string                    | —                       | #ffffff |
+| fill                  | 按钮形式的 Radio 激活时的填充色和边框色 | string                    | —                       | #409EFF |
 
 ## Radio-group 事件
 

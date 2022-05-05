@@ -130,7 +130,7 @@ dropdown/sizes
 | command  | 派发到`command`回调函数的指令参数 | string/number/object | —      | —      |
 | disabled | 是否禁用                          | boolean              | —      | false  |
 | divided  | 是否显示分隔符                    | boolean              | —      | false  |
-| icon     | custom icon                       | string / Component   | —      | —      |
+| icon     | 自定义图标                        | string / Component   | —      | —      |
 
 ## Dropdown-Item 插槽
 

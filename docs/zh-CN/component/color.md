@@ -12,8 +12,8 @@ Element Plus 为了避免视觉传达差异，使用一套特定的调色板来�
   position: relative;
   border-radius: 4px;
   padding: 20px;
-  margin: 5px 0;
-  height: 114px;
+  margin: 8px 0;
+  height: 112px;
   box-sizing: border-box;
   color: var(--el-color-white);
   font-size: 14px;
@@ -42,30 +42,14 @@ Element Plus 为了避免视觉传达差异，使用一套特定的调色板来�
       }
     }
   }
+
+  .value {
+    margin-top: 2px;
+  }
 }
 
 .demo-color-box-lite {
   color: var(--el-text-color-primary);
-
-  .value {
-    font-size: 12px;
-    opacity: .69;
-    line-height: 24px;
-  }
-}
-
-.bg-transparent {
-  color: var(--el-text-color-primary);
-  background-image: linear-gradient(
-      45deg,
-      rgb(249, 249, 250) 25%,
-      transparent 25%
-    ),
-  linear-gradient(135deg, rgb(249, 249, 250) 25%, transparent 25%),
-  linear-gradient(45deg, transparent 75%, rgb(249, 249, 250) 75%),
-  linear-gradient(135deg, transparent 75%, rgb(249, 249, 250) 75%);
-  background-size: 20px 20px;
-  background-position: 0px 0px, 10px 0px, 10px -10px, 0px 10px;
 }
 </style>
 

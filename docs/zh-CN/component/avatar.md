@@ -51,24 +51,24 @@ avatar/fit
 
 ### Avatar 属性
 
-| 名称      | 说明                                                      | 类型                                                       | 默认值      | 是否必需 |
-| --------- | --------------------------------------------------------- | ---------------------------------------------------------- | ----------- | -------- |
-| `icon`    | representation type to icon, more info on icon component. | `string \| Component`                                      | —           | No       |
-| `size`    | avatar size.                                              | `number \| 'large' \| 'default' \| 'small'`                | `'default'` | No       |
-| `shape`   | avatar shape.                                             | `'circle' \| 'square'`                                     | `'circle'`  | No       |
-| `src`     | the source of the image for an image avatar.              | `string`                                                   | —           | No       |
-| `src-set` | native attribute `srcset` of image avatar.                | `string`                                                   | —           | No       |
-| `alt`     | native attribute `alt` of image avatar.                   | `string`                                                   | —           | No       |
-| `fit`     | set how the image fit its container for an image avatar.  | `'fill' \| 'contain' \| 'cover' \| 'none' \| 'scale-down'` | `'cover'`   | No       |
+| 名称      | 说明                                         | 类型                                                       | 默认值      | 是否必需 |
+| --------- | -------------------------------------------- | ---------------------------------------------------------- | ----------- | -------- |
+| `icon`    | 设置 Avatar 的图标类型，具体参考 Icon 组件   | `string \| Component`                                      | —           | 否       |
+| `size`    | Avatar 大小                                  | `number \| 'large' \| 'default' \| 'small'`                | `'default'` | 否       |
+| `shape`   | Avatar 形状                                  | `'circle' \| 'square'`                                     | `'circle'`  | 否       |
+| `src`     | Avatar 图片的源地址                          | `string`                                                   | —           | 否       |
+| `src-set` | 图片 Avatar 的原生 `srcset` 属性             | `string`                                                   | —           | 否       |
+| `alt`     | 图片 Avatar 的原生 `alt` 属性                | `string`                                                   | —           | 否       |
+| `fit`     | 当展示类型为图片的时候，设置图片如何适应容器 | `'fill' \| 'contain' \| 'cover' \| 'none' \| 'scale-down'` | `'cover'`   | 否       |
 
 ### Avatar 事件
 
-| 名称    | 说明                           | 类型                 |
-| ------- | ------------------------------ | -------------------- |
-| `error` | trigger when image load error. | `(e: Event) => void` |
+| 名称    | 说明               | 类型                 |
+| ------- | ------------------ | -------------------- |
+| `error` | 图片加载失败时触发 | `(e: Event) => void` |
 
 ### Avatar 插槽
 
-| 插槽名    | 说明                      |
-| --------- | ------------------------- |
-| `default` | customize avatar content. |
+| 插槽名    | 说明               |
+| --------- | ------------------ |
+| `default` | 自定义头像展示内容 |

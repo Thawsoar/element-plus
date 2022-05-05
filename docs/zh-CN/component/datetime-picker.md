@@ -86,17 +86,17 @@ datetime-picker/default-time
 | shortcuts             | 设置快捷选项，需要传入数组对象                                                             | object[{ text: string, value: date / function }]  | —                                                                                                                                                         | —                   |
 | disabledDate          | 一个用来判断该日期是否被禁用的函数，接受一个 Date 对象作为参数。 应该返回一个 Boolean 值。 | function                                          | —                                                                                                                                                         | —                   |
 | cellClassName         | 设置自定义类名                                                                             | Function(Date)                                    | —                                                                                                                                                         | —                   |
-| teleported            | whether datetime-picker dropdown is teleported to the body                                 | boolean                                           | true / false                                                                                                                                              | true                |
+| teleported            | 是否将 datetime-picker 的下拉列表插入至 body 元素                                          | boolean                                           | true / false                                                                                                                                              | true                |
 
 ## 事件
 
-| 事件名          | 说明                                                                                                     | 回调参数                                  |
-| --------------- | -------------------------------------------------------------------------------------------------------- | ----------------------------------------- |
-| change          | 用户确认选定的值时触发                                                                                   | value                                     |
-| blur            | 在组件 Input 失去焦点时触发                                                                              | instance                                  |
-| focus           | 在组件 Input 获得焦点时触发                                                                              | instance                                  |
-| calendar-change | 如果用户没有选择日期，那默认展示当前日的月份。 选中日历日期后会执行的回调，只有当 `datetimerange` 才生效 | [Date, Date]                              |
-| visible-change  | triggers when the DateTimePicker's dropdown appears/disappears                                           | true when it appears, and false otherwise |
+| 事件名          | 说明                                                                                                     | 回调参数                      |
+| --------------- | -------------------------------------------------------------------------------------------------------- | ----------------------------- |
+| change          | 用户确认选定的值时触发                                                                                   | value                         |
+| blur            | 在组件 Input 失去焦点时触发                                                                              | instance                      |
+| focus           | 在组件 Input 获得焦点时触发                                                                              | instance                      |
+| calendar-change | 如果用户没有选择日期，那默认展示当前日的月份。 选中日历日期后会执行的回调，只有当 `datetimerange` 才生效 | [Date, Date]                  |
+| visible-change  | 当 DateTimePicker 的下拉列表出现/消失时触发                                                              | 出现时为 true，隐藏时为 false |
 
 ## 方法
 
@@ -104,9 +104,9 @@ datetime-picker/default-time
 | ------ | ----------------- | ---- |
 | focus  | 使 input 获取焦点 | —    |
 
-## Slots
+## 插槽
 
-| Name            | Description                    |
-| --------------- | ------------------------------ |
-| default         | custom cell content            |
-| range-separator | custom range separator content |
+| 插槽名          | 说明                 |
+| --------------- | -------------------- |
+| default         | 自定义单元格内容     |
+| range-separator | 自定义范围分割符内容 |

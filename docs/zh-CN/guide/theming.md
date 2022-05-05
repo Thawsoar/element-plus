@@ -243,7 +243,7 @@ const el = document.documentElement
 getComputedStyle(el).getPropertyValue(`--el-color-primary`)
 
 // 设置 css 变量
-el.style['--el-color-primary'] = 'red'
+el.style.setProperty('--el-color-primary', 'red')
 ```
 
 如果你想要更优雅的方式，请看这里。 [useCssVar | VueUse](https://vueuse.org/core/usecssvar/)

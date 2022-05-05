@@ -85,15 +85,15 @@ import { ElMessage } from 'element-plus'
 
 此时调用方法为 `ElMessage(options)`。 我们也为每个 type 定义了各自的方法，如 `ElMessage.success(options)`。 并且可以调用 `ElMessage.closeAll()` 手动关闭所有实例。
 
-## App context inheritance <el-tag> >= 2.0.3</el-tag>
+## 应用程序上下文继承 <el-tag> >= 2.0.3</el-tag>
 
-Now message accepts a `context` as second parameter of the message constructor which allows you to inject current app's context to message which allows you to inherit all the properties of the app.
+现在 Message 接受一条 `context` 作为消息构造器的第二个参数，允许你将当前应用的上下文注入到 Message 中，这将允许你继承应用程序的所有属性。
 
-You can use it like this:
+你可以像这样使用它：
 
 :::tip
 
-If you globally registered ElMessage component, it will automatically inherit your app context.
+如果您全局注册了 ElMessage 组件，它将自动继承应用的上下文环境。
 
 :::
 
@@ -101,14 +101,14 @@ If you globally registered ElMessage component, it will automatically inherit yo
 import { getCurrentInstance } from 'vue'
 import { ElMessage } from 'element-plus'
 
-// in your setup method
+// 在你的 setup 方法中
 const { appContext } = getCurrentInstance()!
 ElMessage({}, appContext)
 ```
 
 ## Message API
 
-### Options
+### Message 配置项
 
 | 属性                       | 说明                                          | 类型                                          | 默认值          |
 | -------------------------- | --------------------------------------------- | --------------------------------------------- | --------------- |
@@ -127,8 +127,8 @@ ElMessage({}, appContext)
 
 ### Message 方法
 
-`Message` and `this.$message` returns the current Message instance. To manually close the instance, you can call `close` on it.
+调用 `Message` 或 `this.$message` 会返回当前 Message 的实例。 如果需要手动关闭实例，可以调用它的 `close` 方法。
 
-| 方法名  | 描述              |
-| ------- | ----------------- |
-| `close` | close the Message |
+| 方法名  | 描述               |
+| ------- | ------------------ |
+| `close` | 关闭当前的 Message |

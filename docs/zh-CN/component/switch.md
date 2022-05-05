@@ -87,7 +87,7 @@ switch/prevent-switching
 | disabled              | 是否禁用                                                                         | boolean                   | —                       | false   |
 | loading               | 是否显示加载中                                                                   | boolean                   | —                       | false   |
 | size                  | switch 的大小                                                                    | string                    | large / default / small | default |
-| width                 | switch 的宽度                                                                    | number                    | —                       | 40      |
+| width                 | switch 的宽度                                                                    | number / string           | —                       | —       |
 | inline-prompt         | 无论图标或文本是否显示在点内，只会呈现文本的第一个字符                           | boolean                   | —                       | false   |
 | active-icon           | switch 状态为 `on` 时所显示图标，设置此项会忽略 `active-text`                    | string / Component        | —                       | —       |
 | inactive-icon         | switch 状态为 `off` 时所显示图标，设置此项会忽略 `inactive-text`                 | string / Component        | —                       | —       |

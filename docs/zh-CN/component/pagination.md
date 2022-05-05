@@ -87,8 +87,8 @@ pagination/more-elements
 我们现在会检查一些不合理的用法，如果发现分页器未显示，可以核对是否违反以下情形：
 
 - `total` 和 `page-count` 必须传一个，不然组件无法判断总页数；优先使用 `page-count`;
-- 如果传入了 `current-page` 必须监听 `current-page` 变更的事件（`onUpdate:currentPage`）；否则分页切换不起作用；
-- 如果传入了 `page-size`，且布局包含 page-size 选择器（即 `layout` 包含 `sizes`），必须监听 `page-size` 变更的事件（`onUpdate:pageSize`），否则 `page-size` 切换不起作用；
+- 如果传入了 `current-page`，必须监听 `current-page` 变更的事件（`@update:current-page`），否则分页切换不起作用；
+- 如果传入了 `page-size`，且布局包含 page-size 选择器（即 `layout` 包含 `sizes`），必须监听 `page-size` 变更的事件（`@update:page-size`），否则分页大小的变化将不起作用。
 
 :::
 

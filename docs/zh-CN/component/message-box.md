@@ -114,31 +114,31 @@ message-box/draggable
 - `$confirm(message, title, options)` 或 `$confirm(message, options)`
 - `$prompt(message, title, options)` 或 `$prompt(message, options)`
 
-## App context inheritance <el-tag>> 2.0.4</el-tag>
+## 应用程序上下文继承 <el-tag>> 2.0.4</el-tag>
 
-Now message box accepts a `context` as second (forth if you are using message box variants) parameter of the message constructor which allows you to inject current app's context to message which allows you to inherit all the properties of the app.
+现在 MessageBox 接受构造器的 `context` 作为第二个(如果你正在使用消息框变量的话) 参数，这个参数允许你将当前应用的上下文注入到消息中，这将允许你继承应用程序的所有属性。
 
 ```ts
 import { getCurrentInstance } from 'vue'
 import { ElMessageBox } from 'element-plus'
 
-// in your setup method
+// 在你的 setup 方法中
 const { appContext } = getCurrentInstance()!
-// You can pass it like:
+// 你可以像这样传递参数：
 ElMessageBox({}, appContext)
-// or if you are using variants
+// 或者正在使用不同的调用方式
 ElMessageBox.alert('Hello world!', 'Title', {}, appContext)
 ```
 
-## Local import
+## 按需引入
 
-If you prefer importing `MessageBox` on demand:
+如果您需要按需引入 `MessageBox`：
 
 ```ts
 import { ElMessageBox } from 'element-plus'
 ```
 
-The corresponding methods are: `ElMessageBox`, `ElMessageBox.alert`, `ElMessageBox.confirm` and `ElMessageBox.prompt`. The parameters are the same as above.
+相应的方法是： `ElMessageBox`，`ElMessageBox.alert`， `ElMessageBox.confirm` 和 `ElMessageBox.prompt`。 调用参数同上。
 
 ## MessageBox 配置项
 
@@ -151,7 +151,7 @@ The corresponding methods are: `ElMessageBox`, `ElMessageBox.alert`, `ElMessageB
 | icon                         | 消息自定义图标，该属性会覆盖 `type` 的图标。                                                                                                          | string / Component                                                                                                                                                           | —                                | —                                               |
 | custom-class                 | MessageBox 的自定义类名                                                                                                                               | string                                                                                                                                                                       | —                                | —                                               |
 | custom-style                 | MessageBox 的自定义内联样式                                                                                                                           | CSSProperties                                                                                                                                                                | —                                | —                                               |
-| callback                     | 若不使用 Promise，可以使用此参数指定 MessageBox 关闭后的回调函数。                                                                                    | function(action, instance)，action 的值为'confirm', 'cancel'或'close', `instance`为 MessageBox 实例， 可以通过它访问实例上的属性和方法 可以通过它访问实例上的属性和方法      | —                                | —                                               |
+| callback                     | 若不使用 Promise，可以使用此参数指定 MessageBox 关闭后的回调函数。                                                                                    | function(action, instance), where `action` can be 'confirm', 'cancel' or 'close', and `instance` is the MessageBox instance. 可以通过它访问实例上的属性和方法                | —                                | —                                               |
 | showClose                    | MessageBox 是否显示右上角关闭按钮                                                                                                                     | boolean                                                                                                                                                                      | —                                | true                                            |
 | before-close                 | messageBox 关闭前的回调，会暂停消息弹出框的关闭过程。                                                                                                 | function(action, instance, done)，`action`的值为'confirm', 'cancel'或'close'；`instance`为 MessageBox 实例，可以通过它访问实例上的属性和方法；`done`用于关闭 MessageBox 实例 | —                                | —                                               |
 | distinguish-cancel-and-close | 是否将取消（点击取消按钮）与关闭（点击关闭按钮或遮罩层、按下 Esc 键）进行区分                                                                         | boolean                                                                                                                                                                      | —                                | false                                           |

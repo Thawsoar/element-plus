@@ -1,5 +1,5 @@
 ---
-title: Tooltip V2
+title: Tooltip V2 虚拟化文字提示
 lang: zh-CN
 ---
 
@@ -11,63 +11,63 @@ lang: zh-CN
 
 在图标上以 **Hover** 或者 **tab** 方式触发文字提示。
 
-<!-- :::demo
+:::demo
 
 tooltip-v2/basic-usage
 
-::: -->
+:::
 
 ## 可访问性友好的文字提示
 
-<!-- :::demo
+:::demo
 
 tooltip-v2/a11y
 
-::: -->
+:::
 
 ## 转场/动画
 
-You may set transition/animation via `CSS` animation/transition or [Transition](https://vuejs.org/guide/built-ins/transition.html#transition) component for your tooltip content when opening.
+你可能会通过`CSS`或者 [Transition](https://vuejs.org/guide/built-ins/transition.html#transition)组件为您的文字提示设置打开过渡（动画）
 
 :::tip
 
-By default, tooltip v2 ONLY allows a half-way transition/animation which only occurs when the tooltip is shown. This is because the implementation uses `v-if` to show/hide the tooltip. When closing, the content element is removed from DOM, so that the transition / animation will be interrupted.
+默认情况下，tooltip-v2 只会在文字提示被打开时显示过渡动画。 因为该组件实现是以 `v-if` 表示文字提示的展示或隐藏。 在关闭时，元素的内容将会从 DOM 中移除，因此过渡动画将会被中断。
 
 :::
 
-<!-- :::demo
+:::demo
 
 tooltip-v2/transition
 
-::: -->
+:::
 
 ### 完全过渡
 
-Of course, you can have full transition for your tooltip content. But this requires using [Transition](https://vuejs.org/guide/built-ins/transition.html#transition) component, checkout the demo below.
+当然，你可以对于文字提示的内容有完整的过渡。 但是这需要 [Transition](https://vuejs.org/guide/built-ins/transition.html#transition) 组件，请查看如下演示。
 
-<!-- :::demo
+:::demo
 
 tooltip-v2/full-transition
 
-::: -->
+:::
 
 ## 渲染到根元素
 
-By default, unlike [tooltip v1](./tooltip.md), the tooltip will be rendered to the body element. **tooltip v2** will render to where the trigger/reference element is. But you can still render to to the root element by using `Teleport` component.
+默认地，不像 [tooltip v1](./tooltip.md)，文字提示将会被渲染至 body 元素。 **tooltip v2**将会被渲染到触发或表现的元素上。 但是你仍然可以使用 `Teleport` 将它渲染到根元素。
 
-<!-- :::demo
+:::demo
 
 tooltip-v2/render-to-root
 
-::: -->
+:::
 
 ## 带箭头
 
-<!-- :::demo
+:::demo
 
 tooltip-v2/arrow
 
-::: -->
+:::
 
 <!-- ## Composing your own tooltip
 

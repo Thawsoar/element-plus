@@ -83,15 +83,15 @@ import { ElNotification } from 'element-plus'
 
 你可以在对应的处理函数内调用 `ElNotification(options)` 来呼出通知栏。 我们也提前定义了多个 type 的单独调用方法，如 `ElNotification.success(options)`。 当你需要关闭页面上所有的通知栏的时候，可以调用 `ElNotification.closeAll()` 来关闭所有的实例。
 
-## App context inheritance <el-tag>> 2.0.4</el-tag>
+## 应用程序上下文继承 <el-tag>> 2.0.4</el-tag>
 
-Now notification accepts a `context` as second parameter of the message constructor which allows you to inject current app's context to notification which allows you to inherit all the properties of the app.
+现在 Notification 接受一条 `context` 作为消息构造器的第二个参数，允许你将当前应用的上下文注入到 Notification 中，这将允许你继承应用程序的所有属性。
 
-You can use it like this:
+你可以像这样使用它：
 
 :::tip
 
-If you globally registered ElNotification component, it will automatically inherit your app context.
+如果您全局注册了 ElNotification 组件，它将自动继承应用的上下文环境。
 
 :::
 
@@ -99,7 +99,7 @@ If you globally registered ElNotification component, it will automatically inher
 import { getCurrentInstance } from 'vue'
 import { ElNotification } from 'element-plus'
 
-// in your setup method
+// 在你的 setup 方法中
 const { appContext } = getCurrentInstance()!
 ElNotification({}, appContext)
 ```

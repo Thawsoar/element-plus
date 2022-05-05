@@ -59,7 +59,7 @@ layout/column-offset
 
 默认使用 flex 布局来对分栏进行灵活的对齐。
 
-:::demo You can define the layout of child elements by setting `justify` attribute with start, center, end, space-between, space-around or space-evenly.
+:::demo 您可以通过`justify` 属性来定义子元素的排版方式，其取值为 start、center、end、space-between、space-around 或 space-evenly。
 
 layout/alignment
 
@@ -132,3 +132,7 @@ import 'element-plus/theme-chalk/display.css'
 | 插槽名 | 说明           |
 | ------ | -------------- |
 | —      | 自定义默认内容 |
+
+<style lang="scss">
+@use '../../examples/layout/index.scss';
+</style>

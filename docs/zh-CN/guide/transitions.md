@@ -11,7 +11,7 @@ Element Plus 内应用在部分组件的过渡动画，你也可以直接使用�
 
 :::demo 提供 `el-fade-in-linear` 和 `el-fade-in` 两种效果。
 
-transition/fade
+transitions/fade
 
 :::
 
@@ -19,7 +19,7 @@ transition/fade
 
 :::demo 提供 `el-zoom-in-center`，`el-zoom-in-top` 和 `el-zoom-in-bottom` 三种效果。
 
-transition/zoom
+transitions/zoom
 
 :::
 
@@ -29,7 +29,7 @@ transition/zoom
 
 :::demo
 
-transition/collapse
+transitions/collapse
 
 :::
 

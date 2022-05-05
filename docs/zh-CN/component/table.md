@@ -203,7 +203,7 @@ table/custom-index
 
 :::
 
-## Table Layout
+## 表格布局
 
 通过属性 [table-layout](https://developer.mozilla.org/en-US/docs/Web/CSS/table-layout) 可以指定表格中单元格、行和列的布局方式
 
@@ -251,7 +251,7 @@ table/table-layout
 | load                    | 加载子节点数据的函数，lazy 为 true 时生效，函数第二个参数包含了节点的层级信息                                                                                                                                 | function(row, treeNode, resolve)                            | —                               | —                                                             |
 | tree-props              | 渲染嵌套数据的配置选项                                                                                                                                                                                        | object                                                      | —                               | `{ hasChildren: 'hasChildren', children: 'children' }`        |
 | table-layout            | 设置表格单元、行和列的布局方式                                                                                                                                                                                | string                                                      | fixed / auto                    | fixed                                                         |
-| scrollbar-always-on     | always show scrollbar                                                                                                                                                                                         | boolean                                                     | —                               | false                                                         |
+| scrollbar-always-on     | 总是显示滚动条                                                                                                                                                                                                | boolean                                                     | —                               | false                                                         |
 
 ## Table 事件
 
@@ -300,6 +300,7 @@ table/table-layout
 | ------ | --------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
 | -      | 自定义默认内容                                                                                                                          | Table-column |
 | append | 插入至表格最后一行之后的内容， 如果需要对表格的内容进行无限滚动操作，可能需要用到这个 slot。 若表格有合计行，该 slot 会位于合计行之上。 | —            |
+| empty  | 当数据为空时自定义的内容                                                                                                                | —            |
 
 ## Table-column 属性
 

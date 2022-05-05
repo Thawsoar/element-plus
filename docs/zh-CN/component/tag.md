@@ -53,19 +53,19 @@ tag/theme
 
 :::
 
-<!-- ## Rounded <el-tag>> 2.1.7</el-tag>
+## 圆形标签 <el-tag>> 2.1.7</el-tag>
 
-Tag can also be rounded like button.
+Tag 可以向按钮组件一样变为完全圆形。
 
 :::demo
 
 tag/rounded
 
-::: -->
+:::
 
 ## 可选中的标签
 
-Sometimes because of the business needs, we might need checkbox like tag, but **button like checkbox** cannot meet our needs, here comes `check-tag`
+有时候因为业务需求，我们可能会需要用到类似复选框的标签，但是**按钮式的复选框**的样式又不满足需求，此时我们就可以用到 `check-tag`组件。
 
 :::demo check-tag 的基础使用方法，check-tag 提供的 API 非常简单。
 
@@ -75,16 +75,16 @@ tag/checkable
 
 ## Tag 属性
 
-| 属性                | 说明                   | 类型    | 可选值                      | 默认值  |
-| ------------------- | ---------------------- | ------- | --------------------------- | ------- |
-| type                | 类型                   | string  | success/info/warning/danger | —       |
-| closable            | 是否可关闭             | boolean | —                           | false   |
-| disable-transitions | 是否禁用渐变动画       | boolean | —                           | false   |
-| hit                 | 是否有边框描边         | boolean | —                           | false   |
-| color               | 背景色                 | string  | —                           | —       |
-| size                | 尺寸                   | string  | large / default /small      | default |
-| effect              | 主题                   | string  | dark / light / plain        | light   |
-| round               | whether Tag is rounded | boolean | —                           | false   |
+| 属性                | 说明             | 类型    | 可选值                      | 默认值  |
+| ------------------- | ---------------- | ------- | --------------------------- | ------- |
+| type                | 类型             | string  | success/info/warning/danger | —       |
+| closable            | 是否可关闭       | boolean | —                           | false   |
+| disable-transitions | 是否禁用渐变动画 | boolean | —                           | false   |
+| hit                 | 是否有边框描边   | boolean | —                           | false   |
+| color               | 背景色           | string  | —                           | —       |
+| size                | 尺寸             | string  | large / default /small      | default |
+| effect              | 主题             | string  | dark / light / plain        | light   |
+| round               | Tag 是否为圆形   | boolean | —                           | false   |
 
 ## Tag 事件
 

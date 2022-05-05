@@ -49,7 +49,7 @@ progress/circular-progress-bar
 
 :::demo
 
-progress/linear-progress-bar
+progress/dashboard-progress-bar
 
 :::
 
