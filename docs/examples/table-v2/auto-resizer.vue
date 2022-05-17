@@ -1,4 +1,21 @@
-export const generateColumns = (length = 10, prefix = 'column-', props?: any) =>
+<template>
+  <div style="height: 400px">
+    <el-auto-resizer>
+      <template #default="{ height, width }">
+        <el-table-v2
+          :columns="columns"
+          :data="data"
+          :width="width"
+          :height="height"
+          fixed
+        />
+      </template>
+    </el-auto-resizer>
+  </div>
+</template>
+
+<script lang="ts" setup>
+const generateColumns = (length = 10, prefix = 'column-', props?: any) =>
   Array.from({ length }).map((_, columnIndex) => ({
     ...props,
     key: `${prefix}${columnIndex}`,
@@ -7,7 +24,7 @@ export const generateColumns = (length = 10, prefix = 'column-', props?: any) =>
     width: 150,
   }))
 
-export const generateData = (
+const generateData = (
   columns: ReturnType<typeof generateColumns>,
   length = 200,
   prefix = 'row-'
@@ -24,3 +41,7 @@ export const generateData = (
       }
     )
   })
+
+const columns = generateColumns(10)
+const data = generateData(columns, 200)
+</script>

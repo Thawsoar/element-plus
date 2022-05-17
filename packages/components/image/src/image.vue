@@ -22,7 +22,7 @@
         :infinite="infinite"
         :url-list="previewSrcList"
         :hide-on-click-modal="hideOnClickModal"
-        :teleported="teleported"
+        :teleported="previewTeleported"
         :close-on-press-escape="closeOnPressEscape"
         @close="closeViewer"
         @switch="switchViewer"
@@ -44,18 +44,8 @@ import {
   useAttrs as useRawAttrs,
   watch,
 } from 'vue'
-import {
-  isBoolean,
-  isClient,
-  useEventListener,
-  useThrottleFn,
-} from '@vueuse/core'
-import {
-  useAttrs,
-  useDeprecated,
-  useLocale,
-  useNamespace,
-} from '@element-plus/hooks'
+import { isClient, useEventListener, useThrottleFn } from '@vueuse/core'
+import { useAttrs, useLocale, useNamespace } from '@element-plus/hooks'
 import ImageViewer from '@element-plus/components/image-viewer'
 import {
   getScrollContainer,
@@ -77,17 +67,6 @@ const emit = defineEmits(imageEmits)
 
 let prevOverflow = ''
 
-useDeprecated(
-  {
-    scope: 'el-image',
-    from: 'append-to-body',
-    replacement: 'preview-teleported',
-    version: '2.2.0',
-    ref: 'https://element-plus.org/en-US/component/image.html#image-attributess',
-  },
-  computed(() => isBoolean(props.appendToBody))
-)
-
 const { t } = useLocale()
 const ns = useNamespace('image')
 const rawAttrs = useRawAttrs()
@@ -101,8 +80,8 @@ const showViewer = ref(false)
 const container = ref<HTMLElement>()
 
 const _scrollContainer = ref<HTMLElement | Window>()
-let stopScrollListener: () => void
-let stopWheelListener: () => void
+let stopScrollListener: (() => void) | undefined
+let stopWheelListener: (() => void) | undefined
 
 const containerStyle = computed(() => rawAttrs.style as StyleValue)
 
@@ -117,10 +96,6 @@ const imageStyle = computed<CSSProperties>(() => {
 const preview = computed(() => {
   const { previewSrcList } = props
   return Array.isArray(previewSrcList) && previewSrcList.length > 0
-})
-
-const teleported = computed(() => {
-  return props.appendToBody || props.previewTeleported
 })
 
 const imageIndex = computed(() => {
@@ -216,7 +191,7 @@ async function addLazyLoadListener() {
 function removeLazyLoadListener() {
   if (!isClient || !_scrollContainer.value || !lazyLoadHandler) return
 
-  stopScrollListener()
+  stopScrollListener?.()
   _scrollContainer.value = undefined
 }
 

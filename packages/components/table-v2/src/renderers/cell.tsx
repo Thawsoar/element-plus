@@ -3,7 +3,7 @@ import { isFunction, isObject } from '@element-plus/utils'
 import { ExpandIcon, TableCell } from '../components'
 import { Alignment } from '../constants'
 import { placeholderSign } from '../private'
-import { componentToSlot, enforceUnit } from '../utils'
+import { componentToSlot, enforceUnit, tryCall } from '../utils'
 
 import type { FunctionalComponent, UnwrapNestedRefs, VNode } from 'vue'
 import type { CellRendererParams } from '../types'
@@ -37,6 +37,7 @@ const CellRenderer: FunctionalComponent<CellRendererProps> = (
     expandedRowKeys,
     ns,
     // derived props
+    cellProps: _cellProps,
     expandColumnKey,
     indentSize,
     iconSize,
@@ -61,6 +62,15 @@ const CellRenderer: FunctionalComponent<CellRendererProps> = (
   const cellData = isFunction(dataGetter)
     ? dataGetter({ columns, column, columnIndex, rowData, rowIndex })
     : get(rowData, dataKey ?? '')
+
+  const extraCellProps = tryCall(_cellProps, {
+    cellData,
+    columns,
+    column,
+    columnIndex,
+    rowIndex,
+    rowData,
+  })
 
   const cellProps = {
     class: ns.e('cell-text'),
@@ -111,7 +121,7 @@ const CellRenderer: FunctionalComponent<CellRendererProps> = (
   }
 
   return (
-    <div class={kls} style={cellStyle}>
+    <div class={kls} style={cellStyle} {...extraCellProps}>
       {IconOrPlaceholder}
       {Cell}
     </div>

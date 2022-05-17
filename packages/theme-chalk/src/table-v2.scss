@@ -52,6 +52,7 @@
 }
 
 @include b('table-v2') {
+  font-size: 14px;
   * {
     box-sizing: border-box;
   }
@@ -142,6 +143,7 @@
       @include cell-alignment;
       height: 100%;
       user-select: none;
+      overflow: hidden;
       background-color: getCssVar('table-header', 'bg-color');
       color: getCssVar('table-header', 'text-color');
       font-weight: bold;
@@ -170,6 +172,8 @@
   }
 
   @include e('row') {
+    border-bottom: getCssVar('table', 'border');
+
     @include center-flex;
     transition: background-color getCssVar('transition-duration', '');
 
@@ -177,10 +181,13 @@
       background-color: getCssVar('table-row', 'hover-bg-color');
     }
 
+    &:hover {
+      background-color: getCssVar('table-row', 'hover-bg-color');
+    }
+
     @include e('row-cell') {
       height: 100%;
       overflow: hidden;
-      border-bottom: getCssVar('table', 'border');
       @include center-flex;
       @include cell-padding;
       @include cell-alignment;
@@ -208,6 +215,13 @@
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
+    }
+  }
+
+  @include when(dynamic) {
+    @include e('row') {
+      overflow: hidden;
+      align-items: stretch;
     }
   }
 }
